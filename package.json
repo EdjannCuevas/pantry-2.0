@@ -1,0 +1,33 @@
+{
+  "name": "pantry-2.0",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "migrate": "npx knex migrate:latest",
+    "seed": "npx knex seed:run",
+    "dev": "nodemon ./server/index.js localhost 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdjannCuevas/pantry-2.0.git"
+  },
+  "author": "Edjann Cuevas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdjannCuevas/pantry-2.0/issues"
+  },
+  "homepage": "https://github.com/EdjannCuevas/pantry-2.0#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "knex": "^2.4.2",
+    "path": "^0.12.7",
+    "pg": "^8.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
