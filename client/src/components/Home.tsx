@@ -10,6 +10,31 @@ const Home = () => {
   const [itemImage, setItemImage] = useState('');
   const [foodItems, setFoodItems] = useState([]);
 
+  const handleAddButton = async (img: string, label: string, qty: number, date: string) => {
+    try {
+      await axios.post('/api/pantry', {
+        uid: '1goodsir',
+        name : label,
+        exp_date : date,
+        img_source: img,
+        qty: qty,
+      });
+
+    } catch (error) {
+      console.log(error)
+    };
+  }
+
+  const getPantry = async () => {
+    try {
+      const fetchedItems = await axios.get('/pantry/1goodsir');
+      console.log(fetchedItems.data);
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const handleSelect = async (foodItem: string) => {
     const fetchedFood = await axios.get(`https://api.edamam.com/api/food-database/v2/parser?app_id=${apiID}&app_key=${apiKey}&ingr=${foodItem}&nutrition-type=cooking&category=generic-foods`);
     const label = !fetchedFood.data.hints[0].food.label ? (!fetchedFood.data.hints[1].food.label ? (!fetchedFood.data.hints[2].food.label ? '' : fetchedFood.data.hints[2].food.label) : fetchedFood.data.hints[1].food.label) : fetchedFood.data.hints[0].food.label;
@@ -70,12 +95,14 @@ const Home = () => {
                               onClick={() => {
                                 setItemLabel('');
                                 setItemImage('');
+                                getPantry();
                               }}
                             >
                               X
                             </div>
                             <div className='flex items-center mr-3'>
                               <img
+                                alt={itemLabel}
                                 className='h-12 w-12 mx-1 rounded-full m-auto'
                                 src={itemImage}
                               />
@@ -118,6 +145,7 @@ const Home = () => {
                   <button
                     className={`${itemImage ? 'bg-green-400 shadow-lg' : 'bg-white shadow-lg border-t-2'} w-full p-2 align-bottom rounded-b-3xl`}
                     onClick={() => {
+                      handleAddButton(itemImage, itemLabel, quantity, expDate);
                     }}
                     >
                     Add
