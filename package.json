@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
+    "build": "npm install && npm run migrate && cd client && npm install && npm run build && npm start",
     "migrate": "npx knex migrate:latest",
     "seed": "npx knex seed:run",
     "dev": "nodemon ./server/index.js localhost 3000"
