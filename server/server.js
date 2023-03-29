@@ -43,20 +43,8 @@ function setUpServer () {
         };
     });
 
-    app.get('/pantry/:id', async (req, res) => {
-        try {
-            const { id } = req.params;
-            const item = await db('pantry')
-                .select('*')
-                .where({ id : id });
-            res.status(201).send(item);
-
-        } catch (error) {
-            console.log(error);
-        };
-    });
-
-    app.post('/pantry', async (req, res) => {
+    app.post('/api/pantry', async (req, res) => {
+        console.log(req.body)
         try {
             await db('pantry')
                 .insert(req.body);
