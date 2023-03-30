@@ -10,6 +10,9 @@ exports.up = async function(knex) {
         table.string('exp_date', 255).notNullable();
         table.string('img_source', 3000).notNullable();
         table.integer('qty').notNullable();
+        table.float('cal').notNullable();
+        table.float('fat').notNullable();
+        table.float('protein').notNullable();
     })
 };
 

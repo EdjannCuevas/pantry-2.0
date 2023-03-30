@@ -14,23 +14,7 @@ function setUpServer () {
         res.sendFile(path.resolve(__dirname,'../client/build/index.html'));
     });
 
-    app.get('/login', (req,res) =>{
-        res.sendFile(path.resolve(__dirname,'../client/build/index.html'));
-    });
-
-    app.get('/lists', (req,res) =>{
-        res.sendFile(path.resolve(__dirname,'../client/build/index.html'));
-    });
-
-    app.get('/recipes', (req,res) =>{
-        res.sendFile(path.resolve(__dirname,'../client/build/index.html'));
-    });
-
-    app.get('/signup', (req,res) =>{
-        res.sendFile(path.resolve(__dirname,'../client/build/index.html'));
-    });
-
-    app.get('/pantry/:uid', async (req, res) => {
+    app.get('/api/pantry/:uid', async (req, res) => {
         const { uid } = req.params;
         try {
             const pantry = await db('pantry')
@@ -55,7 +39,7 @@ function setUpServer () {
         };
     });
 
-    app.put('/pantry/:id', async (req, res) => {
+    app.put('/api/pantry/:id', async (req, res) => {
         try {
             const { id } = req.params;
             
@@ -69,7 +53,7 @@ function setUpServer () {
         };
     });
 
-    app.delete('/pantry/:id', async (req, res) => {
+    app.delete('/api/pantry/:id', async (req, res) => {
         try {
             const { id } = req.params;
             
