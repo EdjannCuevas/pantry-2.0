@@ -58,12 +58,12 @@ const Home = () => {
   }
 
   return (
-    <div className='max-w-[1240px] w-full h-full mx-auto flex justify-center items-start pt-24'
+    <div className='max-w-[1240px] w-full h-full mx-auto flex justify-center items-start pt-16'
     >
       <div className='w-full h-full flex flex-col'>
         <div className='h-[290px] md:h-[250px]'>
-          <div className='flex flex-col md:grid grid-cols-2 w-full h-full'>
-            <div className='p-4'>
+          <div className='flex flex-col md:grid grid-cols-2 w-full h-full p-2'>
+            <div className='p-2'>
               <div className='flex h-[110px] md:h-[220px] flex-col rounded-3xl shadow-lg bg-white pt-5 border-2 border-black'>
                 <div className='flex flex-col justify-start items-start px-6'>
                   <p className=' text-gray-500'>
@@ -167,7 +167,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className='p-4'>
+            <div className='p-2'>
               <div className='flex h-[110px] md:h-[220px] rounded-3xl shadow-lg bg-white border-2 border-black'>
 
               </div>
