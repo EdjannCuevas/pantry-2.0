@@ -73,7 +73,7 @@ const Home = () => {
         <div className='h-full'>
           <div className='flex flex-col md:grid grid-cols-7 w-full h-full p-2'>
             <div className='p-2 col-span-3'>
-              <div className='flex h-[250px] md:h-[220px] flex-col rounded-3xl shadow-lg bg-white bg-opacity-80 pt-5 border-2 border-white'>
+              <div className='flex h-[250px] md:h-[220px] flex-col rounded-3xl shadow-lg bg-white bg-opacity-80 pt-2 border-2 border-white'>
                 <div className='flex flex-col justify-center items-start px-6'>
                   <p className=' text-gray-500'>
                     Add items to your pantry
@@ -103,7 +103,7 @@ const Home = () => {
                     }}
                   />
                   </div>
-                <div className='flex w-full h-[92px] flex-wrap overflow-y-scroll px-4'>
+                <div className='flex w-full h-[102px] flex-wrap overflow-y-scroll px-4'>
                   {
                     foodItems.length > 0
                     ?
@@ -111,7 +111,7 @@ const Home = () => {
                         itemImage.length > 0
                         ?
                           <div
-                            className='flex justify-center items-center border-2 rounded-xl p-2 pl-0 m-auto cursor-pointer hover:scale-105 ease-in duration-500 relative group'
+                            className='flex justify-center items-center border-2 border-green-500 bg-white rounded-xl p-2 pl-0 m-auto cursor-pointer hover:scale-105 ease-in duration-500 relative group'
                           >
                             <div
                               className='flex justify-center items-center w-[25px] mr-3 border-r-2 hover:scale-110 ease-in duration-500 text-gray-400'
