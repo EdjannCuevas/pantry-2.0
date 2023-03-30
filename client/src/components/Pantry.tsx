@@ -11,13 +11,17 @@ interface PantryObj {
     qty: number,
 }
 
-const Pantry = () => {
+interface PantryProps {
+    trigger: boolean
+}
+
+const Pantry: React.FC<PantryProps> = ({ trigger }) => {
     const [pantryItems, setPantryItems] = useState<JSX.Element[]>([]);
     // const [reload, setReload] = useState(false);
 
     useEffect(() => {
       getPantryItems()
-    }, [])
+    }, [trigger])
     
 
     const getPantryItems = async () => {

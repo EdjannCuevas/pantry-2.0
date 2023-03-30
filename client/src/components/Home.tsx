@@ -13,6 +13,7 @@ const Home = () => {
   const [itemLabel, setItemLabel] = useState('');
   const [itemImage, setItemImage] = useState('');
   const [foodItems, setFoodItems] = useState([]);
+  const [trigger, setTrigger] = useState(false);
 
   const handleAddButton = async () => {
     try {
@@ -30,6 +31,14 @@ const Home = () => {
     } catch (error) {
       console.log(error)
     };
+
+    setItemImage('');
+    setItemLabel('');
+    setCalories(0);
+    setFat(0);
+    setProtein(0);
+    setExpDate('');
+    setTrigger(!trigger);
   }
 
   const getPantry = async () => {
@@ -84,7 +93,7 @@ const Home = () => {
                                 handleSelect(food);
                               }}
                             >
-                              + {food}
+                             + {food}
                             </div>
                           )
                         })
@@ -166,7 +175,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <Pantry />
+            <Pantry trigger={trigger} />
             {/* <div className='p-2'>
               <div className='flex h-[110px] md:h-[220px] rounded-3xl shadow-lg bg-white border-2 border-black'>
 
