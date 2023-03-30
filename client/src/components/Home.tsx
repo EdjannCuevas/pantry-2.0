@@ -61,7 +61,7 @@ const Home = () => {
     >
       <div className='w-full h-full'>
         <div className='h-full'>
-          <div className='grid grid-cols-7 w-full h-full p-2'>
+          <div className='flex flex-col md:grid grid-cols-7 w-full h-full p-2'>
             <div className='p-2 col-span-3'>
               <div className='flex h-[110px] md:h-[220px] flex-col rounded-3xl shadow-lg bg-white bg-opacity-80 pt-5 border-2 border-white'>
                 <div className='flex flex-col justify-center items-start px-6'>
