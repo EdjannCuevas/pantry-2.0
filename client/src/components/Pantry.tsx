@@ -35,7 +35,7 @@ const Pantry = () => {
 
             return (
                 <div className='flex py-1 px-4'>
-                    <div className='border-2 w-full border-green-500 bg-white flex h-[80px] rounded-xl hover:scale-105 ease-in duration-500 px-4'>
+                    <div className='border-2 w-full border-green-500 bg-white flex h-[90px] rounded-xl hover:scale-105 ease-in duration-500 px-4'>
                         <div className='flex justify-start w-full'>
                             <div className='flex items-center justify-center pr-4'>
                                 <img
@@ -45,30 +45,30 @@ const Pantry = () => {
                                 />
                             </div>
                             <div className='flex w-full flex-col justify-start items-start'>
-                                <p className='tracking-widest uppercase font-bold'
+                                <p className='tracking-widest uppercase font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'
                                 >
                                     { label }
                                 </p>
-                                <div className='flex w-full justify-between h-[40px] p-4'>
+                                <div className='flex w-full justify-between h-[50px] pt-2'>
                                     <div className='flex flex-col justify-center items-center h-full'>
-                                        <label className=' text-xs tracking-widest uppercase text-gray-500'>qty</label>
-                                        <p>{ quantity }</p>
+                                        <label className='text-[10px] tracking-widest uppercase text-gray-500'>qty</label>
+                                        <p className='text-[15px]'>{ quantity }</p>
                                     </div>
                                     <div className='flex flex-col justify-center items-center h-full'>
-                                        <label className=' text-xs tracking-widest uppercase text-gray-500'>calories</label>
-                                        <p>{ calories }kcal</p>
+                                        <label className='text-[10px] tracking-widest uppercase text-gray-500'>calories</label>
+                                        <p className='text-[15px]'>{ calories }kcal</p>
                                     </div>
                                     <div className='flex flex-col justify-center items-center h-full'>
-                                        <label className=' text-xs tracking-widest uppercase text-gray-500'>protein</label>
-                                        <p>{ protein }g</p>
+                                        <label className='text-[10px] tracking-widest uppercase text-gray-500'>protein</label>
+                                        <p className='text-[15px]'>{ protein }g</p>
                                     </div>
                                     <div className='flex flex-col justify-center items-center h-full'>
-                                        <label className=' text-xs tracking-widest uppercase text-gray-500'>fat</label>
-                                        <p>{ fat }g</p>
+                                        <label className='text-[10px] tracking-widest uppercase text-gray-500'>fat</label>
+                                        <p className='text-[15px]'>{ fat }g</p>
                                     </div>
                                     <div className='flex flex-col justify-center items-center h-full'>
-                                        <label className=' text-xs tracking-widest uppercase text-gray-500'>exp. date</label>
-                                        <p>{ expDate }</p>
+                                        <label className='text-[10px] tracking-widest uppercase text-gray-500'>exp. date</label>
+                                        <p className='text-[15px]'>{ expDate }</p>
                                     </div>
                                 </div>
                             </div>
@@ -84,9 +84,9 @@ const Pantry = () => {
     <div className='w-full h-[620px] col-span-4'>
         <div className='w-full h-full p-2'>
             <div className='flex justify-center items-center h-[25px] border-2 border-b-0 border-white bg-green-500 rounded-sm rounded-b-none z-50'>
-                <h2 className='uppercase tracking-widest'>Pantry</h2>
+                <h2 className='uppercase tracking-widest font-bold'>Pantry</h2>
             </div>
-            <div className='w-full h-[580px] rounded rounded-t-none shadow-lg border-2 border-white bg-white bg-opacity-80 pt-4 overflow-y-scroll'>
+            <div className='w-full h-[580px] rounded rounded-t-none shadow-lg border-2 border-t-0 border-white bg-white bg-opacity-80 pt-4 overflow-y-scroll'>
                 <div className='flex flex-col'>
                     { pantryItems }
                 </div>
