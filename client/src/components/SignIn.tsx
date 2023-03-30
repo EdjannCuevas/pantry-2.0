@@ -3,8 +3,11 @@ import GoogleButton from 'react-google-button'
 
 const SignIn = () => {
   return (
-    <div>SignIn
-        <GoogleButton />
+    <div className='pt-20'>
+      <div>
+        SignIn
+          <GoogleButton />
+      </div>
     </div>
   )
 }
