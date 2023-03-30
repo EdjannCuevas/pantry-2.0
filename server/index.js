@@ -1,6 +1,6 @@
 const server = require('./server');
 const app = server();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 (async () => {
     
