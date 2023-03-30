@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios';
+import Pantry from './Pantry';
 
 const Home = () => {
   const apiID = process.env.REACT_APP_API_ID;
@@ -156,7 +157,7 @@ const Home = () => {
                 </div>
                 <div className='w-full'>
                   <button
-                    className={`${itemImage ? 'bg-green-400 shadow-lg' : 'bg-white shadow-lg border-t-2'} w-full p-2 align-bottom rounded-b-3xl`}
+                    className={`${itemImage ? 'bg-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-t-2'} w-full p-2 align-bottom rounded-b-3xl`}
                     onClick={() => {
                       handleAddButton();
                     }}
@@ -173,13 +174,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className='w-full h-[430px]'>
-          <div className='w-full h-full p-4'>
-            <div className=' w-full h-full rounded shadow-lg bg-white border-2 border-black'>
-
-            </div>
-          </div>
-        </div>
+        <Pantry />
       </div>
     </div>
   )
