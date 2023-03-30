@@ -4,20 +4,26 @@ import axios from 'axios';
 const Home = () => {
   const apiID = process.env.REACT_APP_API_ID;
   const apiKey = process.env.REACT_APP_API_KEY;
+  const [calories, setCalories] = useState(0);
+  const [protein, setProtein] = useState(0);
+  const [fat, setFat] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [expDate, setExpDate] = useState('');
   const [itemLabel, setItemLabel] = useState('');
   const [itemImage, setItemImage] = useState('');
   const [foodItems, setFoodItems] = useState([]);
 
-  const handleAddButton = async (img: string, label: string, qty: number, date: string) => {
+  const handleAddButton = async () => {
     try {
       await axios.post('/api/pantry', {
         uid: '1goodsir',
-        name : label,
-        exp_date : date,
-        img_source: img,
-        qty: qty,
+        name : itemLabel,
+        exp_date : expDate,
+        img_source: itemImage,
+        qty: quantity,
+        cal: calories,
+        fat: fat,
+        protein: protein,
       });
 
     } catch (error) {
@@ -37,10 +43,17 @@ const Home = () => {
 
   const handleSelect = async (foodItem: string) => {
     const fetchedFood = await axios.get(`https://api.edamam.com/api/food-database/v2/parser?app_id=${apiID}&app_key=${apiKey}&ingr=${foodItem}&nutrition-type=cooking&category=generic-foods`);
+    console.log(fetchedFood.data.hints[0].food.nutrients)
     const label = !fetchedFood.data.hints[0].food.label ? (!fetchedFood.data.hints[1].food.label ? (!fetchedFood.data.hints[2].food.label ? '' : fetchedFood.data.hints[2].food.label) : fetchedFood.data.hints[1].food.label) : fetchedFood.data.hints[0].food.label;
     const image = !fetchedFood.data.hints[0].food.image ? (!fetchedFood.data.hints[1].food.image ? (!fetchedFood.data.hints[2].food.image ? '' : fetchedFood.data.hints[2].food.image) : fetchedFood.data.hints[1].food.image) : fetchedFood.data.hints[0].food.image;
+    const calories = !fetchedFood.data.hints[0].food.nutrients.ENERC_KCAL ? (!fetchedFood.data.hints[1].food.nutrients.ENERC_KCAL ? (!fetchedFood.data.hints[2].food.nutrients.ENERC_KCAL ? 0 : fetchedFood.data.hints[2].food.nutrients.ENERC_KCAL) : fetchedFood.data.hints[1].food.nutrients.ENERC_KCAL) : fetchedFood.data.hints[0].food.nutrients.ENERC_KCAL;
+    const fat = !fetchedFood.data.hints[0].food.nutrients.FAT ? (!fetchedFood.data.hints[1].food.nutrients.FAT ? (!fetchedFood.data.hints[2].food.nutrients.FAT ? 0 : fetchedFood.data.hints[2].food.nutrients.FAT) : fetchedFood.data.hints[1].food.nutrients.FAT) : fetchedFood.data.hints[0].food.nutrients.FAT;
+    const protein = !fetchedFood.data.hints[0].food.nutrients.PROCNT ? (!fetchedFood.data.hints[1].food.nutrients.PROCNT ? (!fetchedFood.data.hints[2].food.nutrients.PROCNT ? 0 : fetchedFood.data.hints[2].food.nutrients.PROCNT) : fetchedFood.data.hints[1].food.nutrients.PROCNT) : fetchedFood.data.hints[0].food.nutrients.PROCNT;
     setItemImage(image);
     setItemLabel(label);
+    setCalories(calories);
+    setFat(fat);
+    setProtein(protein);
   }
 
   return (
@@ -145,7 +158,7 @@ const Home = () => {
                   <button
                     className={`${itemImage ? 'bg-green-400 shadow-lg' : 'bg-white shadow-lg border-t-2'} w-full p-2 align-bottom rounded-b-3xl`}
                     onClick={() => {
-                      handleAddButton(itemImage, itemLabel, quantity, expDate);
+                      handleAddButton();
                     }}
                     >
                     Add
