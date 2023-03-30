@@ -44,7 +44,6 @@ const Home = () => {
 
   const handleSelect = async (foodItem: string) => {
     const fetchedFood = await axios.get(`https://api.edamam.com/api/food-database/v2/parser?app_id=${apiID}&app_key=${apiKey}&ingr=${foodItem}&nutrition-type=cooking&category=generic-foods`);
-    console.log(fetchedFood.data.hints[0].food.nutrients)
     const label = !fetchedFood.data.hints[0].food.label ? (!fetchedFood.data.hints[1].food.label ? (!fetchedFood.data.hints[2].food.label ? '' : fetchedFood.data.hints[2].food.label) : fetchedFood.data.hints[1].food.label) : fetchedFood.data.hints[0].food.label;
     const image = !fetchedFood.data.hints[0].food.image ? (!fetchedFood.data.hints[1].food.image ? (!fetchedFood.data.hints[2].food.image ? '' : fetchedFood.data.hints[2].food.image) : fetchedFood.data.hints[1].food.image) : fetchedFood.data.hints[0].food.image;
     const calories = !fetchedFood.data.hints[0].food.nutrients.ENERC_KCAL ? (!fetchedFood.data.hints[1].food.nutrients.ENERC_KCAL ? (!fetchedFood.data.hints[2].food.nutrients.ENERC_KCAL ? 0 : fetchedFood.data.hints[2].food.nutrients.ENERC_KCAL) : fetchedFood.data.hints[1].food.nutrients.ENERC_KCAL) : fetchedFood.data.hints[0].food.nutrients.ENERC_KCAL;
@@ -60,12 +59,12 @@ const Home = () => {
   return (
     <div className='max-w-[1240px] w-full h-full mx-auto flex justify-center items-start pt-16'
     >
-      <div className='w-full h-full flex flex-col'>
-        <div className='h-[290px] md:h-[250px]'>
-          <div className='flex flex-col md:grid grid-cols-2 w-full h-full p-2'>
-            <div className='p-2'>
-              <div className='flex h-[110px] md:h-[220px] flex-col rounded-3xl shadow-lg bg-white pt-5 border-2 border-black'>
-                <div className='flex flex-col justify-start items-start px-6'>
+      <div className='w-full h-full'>
+        <div className='h-full'>
+          <div className='grid grid-cols-7 w-full h-full p-2'>
+            <div className='p-2 col-span-3'>
+              <div className='flex h-[110px] md:h-[220px] flex-col rounded-3xl shadow-lg bg-white bg-opacity-80 pt-5 border-2 border-white'>
+                <div className='flex flex-col justify-center items-start px-6'>
                   <p className=' text-gray-500'>
                     Add items to your pantry
                   </p>
@@ -80,7 +79,7 @@ const Home = () => {
                           return (
                             <div
                               key={food}
-                              className='flex justify-center items-center border-2 rounded-xl p-1 m-1 cursor-pointer hover:scale-105 ease-in duration-500'
+                              className='flex justify-center items-center border-2 border-green-500 bg-white rounded-xl p-1 m-1 cursor-pointer hover:scale-105 ease-in duration-500'
                               onClick={async () => {
                                 handleSelect(food);
                               }}
@@ -167,14 +166,14 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className='p-2'>
+            <Pantry />
+            {/* <div className='p-2'>
               <div className='flex h-[110px] md:h-[220px] rounded-3xl shadow-lg bg-white border-2 border-black'>
 
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
-        <Pantry />
       </div>
     </div>
   )
