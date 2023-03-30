@@ -34,7 +34,7 @@ const Pantry = () => {
 
             return (
                 <div className='flex p-2'>
-                    <div className='border-2 w-full  border-black flex p-4 h-[70px] rounded-xl hover:scale-105 ease-in duration-500'>
+                    <div className='border-2 w-full border-black flex p-4 h-[70px] rounded-xl hover:scale-105 ease-in duration-500'>
                         <div className='flex items-center justify-start w-full h-full'>
                             <div className='flex items-center justify-center pr-4'>
                                 <img
@@ -79,11 +79,11 @@ const Pantry = () => {
 
     return (
     <div className='w-full h-[430px]'>
-            <div className='w-full h-full p-4'>
+            <div className='w-full h-full p-2'>
                     <div className='h-[25px] border-2 border-black rounded-sm z-50'>
                         <h2>Pantry</h2>
                     </div>
-                <div className='w-full h-full rounded shadow-lg bg-white border-2 border-black'>
+                <div className='w-full h-[330px] rounded shadow-lg border-2 border-black'>
                     <div className='flex md:grid grid-cols-2'>
                         { pantryItems }
                     </div>
