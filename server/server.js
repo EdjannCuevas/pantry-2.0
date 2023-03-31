@@ -27,6 +27,19 @@ function setUpServer () {
         };
     });
 
+    app.get('/api/pantry/:uid/selected', async (req, res) => {
+        const { uid } = req.params;
+        try {
+            const pantry = await db('pantry')
+                .select('*')
+                .where({uid: uid, isSelected: true})
+            res.status(201).send(pantry);
+
+        } catch (error) {
+          console.log(error);  
+        };
+    });
+
     app.post('/api/pantry', async (req, res) => {
         console.log(req.body)
         try {
@@ -45,7 +58,7 @@ function setUpServer () {
             
             await db('pantry')
                 .where({ id : id })
-                .update(req.body, ['name', 'timestamp']);
+                .update(req.body, ['isSelected']);
             res.status(201).send('Updated!');
 
         } catch (error) {
