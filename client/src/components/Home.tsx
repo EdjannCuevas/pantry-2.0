@@ -27,6 +27,7 @@ const Home = () => {
         cal: calories,
         fat: fat,
         protein: protein,
+        isSelected: false,
       });
 
     } catch (error) {
@@ -34,6 +35,7 @@ const Home = () => {
     };
 
     setItemImage('');
+    setQuantity(0);
     setItemLabel('');
     setCalories(0);
     setFat(0);
@@ -175,9 +177,9 @@ const Home = () => {
                   </button>
                 </div>
               </div>
-              <Ingredients />
+              <Ingredients trigger={trigger} />
             </div>
-            <Pantry trigger={trigger} />
+            <Pantry trigger={trigger} setTrigger={setTrigger}/>
           </div>
         </div>
       </div>
