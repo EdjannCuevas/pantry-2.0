@@ -1,24 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
-interface IngredientsObj {
-  // id: number,
-  name: string,
-  // img_source: string,
-  // exp_date: string,
-  // fat: number,
-  // cal: number,
-  // protein: number,
-  // isSelected: boolean,
-  // qty: number,
-}
-
-interface IngredientsProps {
-  // setTrigger: (arg: boolean) => void;
-  trigger: boolean
-}
-
-const Ingredients: React.FC<IngredientsProps> = ({ trigger }) => {
+const Ingredients: React.FC<triggerProps> = ({ trigger }) => {
   const [selectedItems, setSelectedItems] = useState([]);
 
   useEffect(() => {
@@ -27,7 +10,7 @@ const Ingredients: React.FC<IngredientsProps> = ({ trigger }) => {
 
   const getSelectedItems = async () => {
     const fetchedSelected = await axios.get('/api/pantry/1goodsir/selected');
-    const selected = fetchedSelected.data.map((foodItem: IngredientsObj) => {
+    const selected = fetchedSelected.data.map((foodItem: PantryObj) => {
       return foodItem.name;
     })
     setSelectedItems(selected);

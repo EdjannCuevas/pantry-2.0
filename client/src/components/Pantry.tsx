@@ -1,24 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 
-interface PantryObj {
-    id: number,
-    name: string,
-    img_source: string,
-    exp_date: string,
-    fat: number,
-    cal: number,
-    protein: number,
-    isSelected: boolean,
-    qty: number,
-}
-
-interface PantryProps {
-    setTrigger: (arg: boolean) => void;
-    trigger: boolean
-}
-
-const Pantry: React.FC<PantryProps> = ({ trigger, setTrigger }) => {
+const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     const [pantryItems, setPantryItems] = useState<JSX.Element[]>([]);
 
     useEffect(() => {

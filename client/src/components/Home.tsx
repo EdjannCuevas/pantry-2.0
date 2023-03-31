@@ -177,7 +177,7 @@ const Home = () => {
                   </button>
                 </div>
               </div>
-              <Ingredients trigger={trigger} />
+              <Ingredients trigger={trigger} setTrigger={setTrigger}/>
             </div>
             <Pantry trigger={trigger} setTrigger={setTrigger}/>
           </div>
