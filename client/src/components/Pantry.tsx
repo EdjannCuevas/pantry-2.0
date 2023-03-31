@@ -2,26 +2,39 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 
 interface PantryObj {
+    id: number,
     name: string,
     img_source: string,
     exp_date: string,
     fat: number,
     cal: number,
     protein: number,
+    isSelected: boolean,
     qty: number,
 }
 
 interface PantryProps {
+    setTrigger: (arg: boolean) => void;
     trigger: boolean
 }
 
-const Pantry: React.FC<PantryProps> = ({ trigger }) => {
+const Pantry: React.FC<PantryProps> = ({ trigger, setTrigger }) => {
     const [pantryItems, setPantryItems] = useState<JSX.Element[]>([]);
-    // const [reload, setReload] = useState(false);
 
     useEffect(() => {
       getPantryItems()
     }, [trigger])
+
+    const handleSelection = async (id: number, selected: boolean) => {
+        try {
+            await axios.put((`/api/pantry/${id}`), {
+                isSelected: !selected
+            });
+            setTrigger(!trigger);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     
 
     const getPantryItems = async () => {
@@ -29,6 +42,7 @@ const Pantry: React.FC<PantryProps> = ({ trigger }) => {
         // const pantryItems = fetchedPantryItems.map((foodItem: PantryObj) => {
         const fetchedPantryItems = await axios.get('/api/pantry/1goodsir');
         const pantryItems = fetchedPantryItems.data.map((foodItem: PantryObj) => {
+            const id = foodItem.id;
             const label = foodItem.name;
             const img = foodItem.img_source;
             const expDate = foodItem.exp_date;
@@ -36,10 +50,14 @@ const Pantry: React.FC<PantryProps> = ({ trigger }) => {
             const calories = foodItem.cal;
             const protein = foodItem.protein;
             const quantity = foodItem.qty;
+            const select = foodItem.isSelected;
 
             return (
                 <div className='flex py-1 px-4'>
-                    <div className='border-2 w-full border-green-500 bg-white flex h-[90px] rounded-xl hover:scale-105 ease-in duration-500 px-4'>
+                    <div
+                        className='border-2 w-full border-green-500 bg-white flex h-[90px] rounded-xl hover:scale-105 ease-in duration-500 px-4'
+                        onClick={() => handleSelection(id, select)}
+                    >
                         <div className='flex justify-start w-full'>
                             <div className='flex items-center justify-center pr-4'>
                                 <img
