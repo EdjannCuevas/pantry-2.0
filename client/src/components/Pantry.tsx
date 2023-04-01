@@ -6,7 +6,7 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
 
     useEffect(() => {
         const getPantryItems = async () => {
-            // const fetchedPantryItems = [{"id":3,"uid":"1goodsir","name":"Pork Sparerib","exp_date":"","img_source":"https://www.edamam.com/food-img/e54/e548d7ddfea41f3ffa55cb712ae4e4a8.jpg","qty":1,"cal":277,"fat":23.4,"protein":15.47},{"id":4,"uid":"1goodsir","name":"Chilies","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/e3d/e3d161d6cfe5ef287053aed5461738ba.jpg","qty":4,"cal":32,"fat":0.44,"protein":1.74},{"id":5,"uid":"1goodsir","name":"Avocado","exp_date":"2023-04-04","img_source":"https://www.edamam.com/food-img/984/984a707ea8e9c6bf5f6498970a9e6d9d.jpg","qty":4,"cal":160,"fat":14.66,"protein":2},{"id":6,"uid":"1goodsir","name":"Chicken","exp_date":"2023-04-07","img_source":"https://www.edamam.com/food-img/d33/d338229d774a743f7858f6764e095878.jpg","qty":1,"cal":215,"fat":15.06,"protein":18.6},{"id":7,"uid":"1goodsir","name":"Chia","exp_date":"2023-04-05","img_source":"https://www.edamam.com/food-img/bcc/bcc6e6bf3175772ad00b414636467257.jpg","qty":1,"cal":486,"fat":30.74,"protein":16.54},{"id":8,"uid":"1goodsir","name":"Pork","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/d55/d553f23d42b9c8fb314416ccd5cde3d2.jpg","qty":2,"cal":198,"fat":12.58,"protein":19.74}]
+            // const fetchedPantryItems = [{"id":3,"uid":"1goodsir","name":"Rye Bread","exp_date":"","img_source":"https://www.edamam.com/food-img/2d1/2d1b8db0fe95a564cb25432a83ca8a66.jpg","qty":2,"cal":259,"fat":3.3,"protein":8.5,"isSelected":false},{"id":1,"uid":"1goodsir","name":"Pork","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/d55/d553f23d42b9c8fb314416ccd5cde3d2.jpg","qty":1,"cal":198,"fat":12.58,"protein":19.74,"isSelected":false},{"id":7,"uid":"1goodsir","name":"Avocado","exp_date":"2023-04-06","img_source":"https://www.edamam.com/food-img/984/984a707ea8e9c6bf5f6498970a9e6d9d.jpg","qty":10,"cal":160,"fat":14.66,"protein":2,"isSelected":false},{"id":2,"uid":"1goodsir","name":"Pork Sparerib","exp_date":"2023-04-06","img_source":"https://www.edamam.com/food-img/e54/e548d7ddfea41f3ffa55cb712ae4e4a8.jpg","qty":2,"cal":277,"fat":23.4,"protein":15.47,"isSelected":false},{"id":4,"uid":"1goodsir","name":"Chicken Leg","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/f53/f53de7dd1054370cdfd98e18ccf77dbe.jpg","qty":1,"cal":214,"fat":15.95,"protein":16.37,"isSelected":false},{"id":6,"uid":"1goodsir","name":"Ground Coffee","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/336/336e810373dd353a955a6896699b586e.jpg","qty":2,"cal":353,"fat":0.5,"protein":12.2,"isSelected":false},{"id":5,"uid":"1goodsir","name":"Orange Blossom Honey","exp_date":"2023-04-30","img_source":"https://www.edamam.com/food-img/198/198c7b25c23b4235b4cc33818c7b335f.jpg","qty":1,"cal":304,"fat":10.6,"protein":0.3,"isSelected":false},{"id":3,"uid":"1goodsir","name":"Rye Bread","exp_date":"","img_source":"https://www.edamam.com/food-img/2d1/2d1b8db0fe95a564cb25432a83ca8a66.jpg","qty":2,"cal":259,"fat":3.3,"protein":8.5,"isSelected":false},{"id":1,"uid":"1goodsir","name":"Pork","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/d55/d553f23d42b9c8fb314416ccd5cde3d2.jpg","qty":1,"cal":198,"fat":12.58,"protein":19.74,"isSelected":false},{"id":7,"uid":"1goodsir","name":"Avocado","exp_date":"2023-04-06","img_source":"https://www.edamam.com/food-img/984/984a707ea8e9c6bf5f6498970a9e6d9d.jpg","qty":10,"cal":160,"fat":14.66,"protein":2,"isSelected":false},{"id":2,"uid":"1goodsir","name":"Pork Sparerib","exp_date":"2023-04-06","img_source":"https://www.edamam.com/food-img/e54/e548d7ddfea41f3ffa55cb712ae4e4a8.jpg","qty":2,"cal":277,"fat":23.4,"protein":15.47,"isSelected":false},{"id":4,"uid":"1goodsir","name":"Chicken Leg","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/f53/f53de7dd1054370cdfd98e18ccf77dbe.jpg","qty":1,"cal":214,"fat":15.95,"protein":16.37,"isSelected":false},{"id":6,"uid":"1goodsir","name":"Ground Coffee","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/336/336e810373dd353a955a6896699b586e.jpg","qty":2,"cal":353,"fat":0.5,"protein":12.2,"isSelected":false},{"id":5,"uid":"1goodsir","name":"Orange Blossom Honey","exp_date":"2023-04-30","img_source":"https://www.edamam.com/food-img/198/198c7b25c23b4235b4cc33818c7b335f.jpg","qty":1,"cal":304,"fat":10.6,"protein":0.3,"isSelected":false}]
             // const pantryItems = fetchedPantryItems.map((foodItem: PantryObj) => {
             const fetchedPantryItems = await axios.get('/api/pantry/1goodsir');
             const pantryItems = fetchedPantryItems.data.filter((foodItem: PantryObj) => !foodItem.isSelected).map((foodItem: PantryObj) => {
@@ -23,7 +23,7 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 return (
                     <div className='flex py-1 px-4'>
                         <div
-                            className='border-2 w-full border-green-500 bg-white flex h-[90px] rounded-xl hover:scale-105 ease-in duration-500 px-4'
+                            className='border-2 w-full border-green-500 bg-white flex h-[90px] rounded-xl hover:scale-105 ease-in duration-500 px-4 relative group'
                             onClick={() => handleSelection(id, select)}
                         >
                             <div className='flex justify-start w-full'>
@@ -35,9 +35,16 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                                     />
                                 </div>
                                 <div className='flex w-full flex-col justify-start items-start'>
-                                    <p className='tracking-widest uppercase font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'>
-                                        { label }
-                                    </p>
+                                    <div className='flex w-full justify-between'>
+                                        <p className='tracking-widest uppercase font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'>
+                                            { label }
+                                        </p>
+                                        <p
+                                            onClick={() => handleDelete(id)}
+                                            className='hidden absolute bot-11 -translate-y-5 translate-x-96 z-10 text-sm group-hover:block w-10 tracking-widest uppercase font-bold bg-red-600 px-1 rounded-lg rounded-b-none'>
+                                            x
+                                        </p>
+                                    </div>
                                     <div className='flex w-full justify-between h-[50px] pt-2'>
                                         <div className='flex flex-col justify-center items-center h-full'>
                                             <label className='text-[10px] tracking-widest uppercase text-gray-500'>qty</label>
@@ -78,6 +85,17 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
             await axios.put((`/api/pantry/${id}`), {
                 isSelected: !selected
             });
+            setTimeout(() => {
+                setTrigger(!trigger);
+            }, 500);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleDelete = async (id: number) => {
+        try {
+            await axios.delete((`/api/pantry/${id}`))
             setTimeout(() => {
                 setTrigger(!trigger);
             }, 500);
