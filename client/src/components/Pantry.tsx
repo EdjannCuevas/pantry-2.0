@@ -35,8 +35,7 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                                     />
                                 </div>
                                 <div className='flex w-full flex-col justify-start items-start'>
-                                    <p className='tracking-widest uppercase font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'
-                                    >
+                                    <p className='tracking-widest uppercase font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'>
                                         { label }
                                     </p>
                                     <div className='flex w-full justify-between h-[50px] pt-2'>

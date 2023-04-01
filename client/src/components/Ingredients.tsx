@@ -23,21 +23,32 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
         return (
           <div className='border-2 h-[80px] rounded-xl my-1 bg-white border-green-500 cursor-pointer'>
             <div
-              className='flex p-2 px-4 justify-between'
+              className='flex'
               onClick={() => handleSelection(id, select)}
             >
-              <div className='w-[60px] h-[60px] rounded-lg overflow-hidden'>
+              <div className='rounded-lg overflow-hidden m-2 ml-4 mr-3 bg-red-400'>
                 <img
+                  className='w-[74px]'
                   alt={ label }
                   src={ img }
                 />
               </div>
-              <div className='flex items-center'>
-                <label>{ label }</label>
-              </div>
-              <div className='flex flex-col  justify-center items-center'>
-                <label className='text-[10px] uppercase tracking-widest'>Exp. Date</label>
-                <p>{ expDate }</p>
+              <div className='w-full flex flex-col'>
+                <div className='flex h-[20px] items-start justify-start'>
+                  <p className='tracking-widest uppercase font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'>
+                      { label }
+                  </p>
+                </div>
+                <div className='flex justify-around w-full h-full'>
+                  <div className='flex flex-col justify-center items-center h-full'>
+                      <label className='text-[10px] tracking-widest uppercase text-gray-500'>qty</label>
+                      <p className='text-[15px]'>{ quantity }</p>
+                  </div>
+                  <div className='flex flex-col  justify-center items-center h-full'>
+                    <label className='text-[10px] uppercase tracking-widest text-gray-500'>Exp. Date</label>
+                    <p className='text-[15px]'>{ expDate }</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
