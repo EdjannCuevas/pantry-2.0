@@ -79,7 +79,9 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
             await axios.put((`/api/pantry/${id}`), {
                 isSelected: !selected
             });
-            setTrigger(!trigger);
+            setTimeout(() => {
+                setTrigger(!trigger);
+            }, 500);
         } catch (error) {
             console.log(error);
         }
@@ -89,7 +91,7 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     return (
     <div className='w-full h-[620px] col-span-4'>
         <div className='w-full h-full p-2'>
-            <div className='flex justify-center items-center h-[25px] border-2 border-b-0 border-white bg-green-500 rounded-sm rounded-b-none z-50'>
+            <div className='flex justify-center items-center h-[25px] border-2 border-b-0 border-white bg-green-500 rounded-sm rounded-b-none z-50 cursor-pointer'>
                 <h2 className='uppercase tracking-widest font-bold'>Pantry</h2>
             </div>
             <div className='w-full h-[580px] rounded rounded-t-none shadow-lg border-2 border-t-0 border-white bg-white bg-opacity-80 pt-4 overflow-y-scroll'>
