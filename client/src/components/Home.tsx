@@ -93,7 +93,7 @@ const Home = () => {
   }
 
   return (
-    <div className='max-w-[1240px] w-full h-full mx-auto flex justify-center items-start pt-16'
+    <div className='max-w-[1240px] w-full h-full mx-auto flex justify-center items-center bg-green-600 pt-16'
     >
       <div className='w-full h-full'>
         <div className='h-full'>
@@ -200,6 +200,7 @@ const Home = () => {
                 </div>
                 <div className='w-full'>
                   <button
+                    disabled={expDate.length === 0}
                     className={`${itemImage && expDate.length > 0 ? 'bg-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-t-2'} w-full p-2 align-bottom rounded-b-3xl`}
                     onClick={() => {
                       handleAddButton();
