@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios';
 import Pantry from './Pantry';
 import Ingredients from './Ingredients';
@@ -13,8 +13,32 @@ const Home = () => {
   const [expDate, setExpDate] = useState('');
   const [itemLabel, setItemLabel] = useState('');
   const [itemImage, setItemImage] = useState('');
-  const [foodItems, setFoodItems] = useState([]);
+  const [foodItems, setFoodItems] = useState<JSX.Element[]>([]);
   const [trigger, setTrigger] = useState(false);
+
+  useEffect(() => {
+    handleDefaultSuggestions();
+  },[])
+
+  const defaultSuggestions = ['banana', 'egg', 'butter', 'bread', 'tomato', 'oil', 'milk', 'apple', 'flour', 'sugar'];
+
+  const handleDefaultSuggestions = () => {
+    const itemButtons = defaultSuggestions.map((food: string) => {
+
+      return (
+        <div
+          key={food}
+          className='flex justify-center items-center border-2 border-green-500 bg-white rounded-xl p-1 m-1 cursor-pointer hover:scale-105 ease-in duration-500'
+          onClick={ async () => {
+            handleSelect(food);
+          }}
+        >
+        + {food}
+        </div>
+      )
+    })
+    setFoodItems(itemButtons);
+  }
 
   const handleAddButton = async () => {
     try {
@@ -84,28 +108,36 @@ const Home = () => {
                     type='search'
                     className='h-10 border-2 p-2'
                     onChange={(e) => {
-                      setTimeout(async () => {
-                        const fetchedItems = await axios.get(`https://api.edamam.com/auto-complete?app_id=${apiID}&app_key=${apiKey}&q=${e.target.value}&limit=5`);
-                        const itemButtons = fetchedItems.data.map((food: string) => {
+                      e.target.value
+                      ?
+                      (  
+                        setTimeout(async () => {
+                          const fetchedItems = await axios.get(`https://api.edamam.com/auto-complete?app_id=${apiID}&app_key=${apiKey}&q=${e.target.value}&limit=5`);
+                          const itemButtons = fetchedItems.data.map((food: string) => {
 
-                          return (
-                            <div
-                              key={food}
-                              className='flex justify-center items-center border-2 border-green-500 bg-white rounded-xl p-1 m-1 cursor-pointer hover:scale-105 ease-in duration-500'
-                              onClick={ async () => {
-                                handleSelect(food);
-                              }}
-                            >
-                             + {food}
-                            </div>
-                          )
-                        })
-                        setFoodItems(itemButtons);
-                      }, 1000);
+                            return (
+                              <div
+                                key={food}
+                                className='flex justify-center items-center border-2 border-green-500 bg-white rounded-xl p-1 m-1 cursor-pointer hover:scale-105 ease-in duration-500'
+                                onClick={ async () => {
+                                  handleSelect(food);
+                                }}
+                              >
+                              + {food}
+                              </div>
+                            )
+                          })
+                          setFoodItems(itemButtons);
+                        }, 1000)
+                      )
+                      :
+                      (
+                        handleDefaultSuggestions()
+                      )
                     }}
                   />
                   </div>
-                <div className='flex w-full h-[102px] flex-wrap overflow-y-scroll px-4'>
+                <div className='flex w-full h-[132px] md:h-[102px] flex-wrap overflow-y-scroll px-4'>
                   {
                     foodItems.length > 0
                     ?
