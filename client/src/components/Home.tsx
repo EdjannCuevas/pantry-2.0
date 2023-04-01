@@ -200,7 +200,7 @@ const Home = () => {
                 </div>
                 <div className='w-full'>
                   <button
-                    className={`${itemImage ? 'bg-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-t-2'} w-full p-2 align-bottom rounded-b-3xl`}
+                    className={`${itemImage && expDate.length > 0 ? 'bg-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-t-2'} w-full p-2 align-bottom rounded-b-3xl`}
                     onClick={() => {
                       handleAddButton();
                     }}
