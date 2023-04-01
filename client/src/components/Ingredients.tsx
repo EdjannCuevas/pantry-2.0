@@ -26,7 +26,7 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
               className='flex'
               onClick={() => handleSelection(id, select)}
             >
-              <div className='rounded-lg overflow-hidden m-2 ml-4 mr-3 bg-red-400'>
+              <div className='rounded-lg overflow-hidden m-2 ml-4 mr-3'>
                 <img
                   className='w-[74px]'
                   alt={ label }
@@ -75,14 +75,14 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
 
   return (
     <div className='pt-6'>
-        <div className='flex h-[250px] md:h-[355px] flex-col rounded-3xl shadow-lg bg-white bg-opacity-80 border-2 border-white'>
+        <div className='flex h-[251px] md:h-[355px] flex-col rounded-3xl shadow-lg bg-white bg-opacity-80 border-2 border-white'>
           <div className='w-full'>
             <div className='flex items-center justify-center w-full h-[45px] rounded-t-3xl bg-green-400'>
               <div className='flex items-center justify-center'>
                 <label className='uppercase tracking-widest'> Search for recipes</label>
               </div>
             </div>
-            <div className='w-full h-[350px] md:h-[265px] overflow-y-scroll px-4'>
+            <div className='w-full h-[160px] md:h-[265px] overflow-y-scroll px-4'>
               <div className='flex flex-col'>
                 {selectedItems}
               </div>
@@ -100,4 +100,4 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
   )
 }
 
-export default Ingredients
+export default Ingredients;
