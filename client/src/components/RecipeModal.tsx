@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import { Transition } from '@headlessui/react'
-import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
 
 interface RecipeModalProps {
     recipe: RecipeObj;
