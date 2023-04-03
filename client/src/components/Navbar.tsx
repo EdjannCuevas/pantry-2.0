@@ -6,7 +6,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='fixed w-full h-16 shadow-xl z-[100]'
+    <div className='fixed w-full h-16 shadow-lg z-[100]'
     >
         <div className='bg-green-400 flex justify-around items-center w-full h-full px-2 2xl:px-16'>
           <div className='flex h-full items-center'>
