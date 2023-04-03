@@ -1,4 +1,5 @@
 import { Transition } from '@headlessui/react'
+import axios from 'axios';
 
 interface RecipeModalProps {
     recipe: RecipeObj;
@@ -14,7 +15,19 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
         }, 300);
     }
 
-    const handleSave = (recipe: RecipeObj) => {
+    const handleSave = async (recipe: RecipeObj) => {
+        try {
+            await axios.post('/api/recipes/', {
+              uid: '1goodsir',
+              label : recipe.label,
+              image : recipe.image,
+              ingredientLines: recipe.ingredientLines,
+              url: recipe.url,
+            });
+      
+        } catch (error) {
+        console.log(error);
+        };
         setTimeout(() => {
             handleCloseModal();
         }, 300);

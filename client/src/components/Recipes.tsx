@@ -191,7 +191,6 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     },[trigger]);
 
     const handleOpenModal = (recipe: RecipeObj) => {
-        console.log(recipe);
         setRecipeObj(recipe);
         setIsModalOn(true);
     }
