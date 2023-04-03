@@ -25,7 +25,7 @@ interface RecipeObj {
     label: string,
     image: string,
     ingredientLines: string[],
-    totalTime: string,
+    totalTime: number,
     yield: number,
     calories: number
     url: string,
