@@ -241,7 +241,7 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
             </div>
             <Grocery trigger={ trigger } setTrigger={ setTrigger } />
         </div>
-        { isModalOn && recipeObj ? <RecipeModal recipe={ recipeObj } handleCloseModal={ handleCloseModal } handleLink={ handleLink }/> : null }
+        { isModalOn && recipeObj ? <RecipeModal recipe={ recipeObj } handleCloseModal={ handleCloseModal } handleLink={ handleLink } trigger={ trigger } setTrigger={ setTrigger }/> : null }
     </div>
   )
 }

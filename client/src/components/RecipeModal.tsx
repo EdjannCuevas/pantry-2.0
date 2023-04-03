@@ -5,9 +5,11 @@ interface RecipeModalProps {
     recipe: RecipeObj;
     handleCloseModal: () => void;
     handleLink: (arg: string) => void;
+    trigger: boolean;
+    setTrigger: (arg: boolean) => void;
 }
 
-const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, handleLink }) => {
+const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, handleLink, trigger, setTrigger }) => {
 
     const handleClose = () => {
         setTimeout(() => {
@@ -24,7 +26,8 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
               ingredientLines: recipe.ingredientLines,
               url: recipe.url,
             });
-      
+            setTrigger(!trigger);
+
         } catch (error) {
         console.log(error);
         };
