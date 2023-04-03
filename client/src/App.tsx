@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home'
 import Navbar from './components/Navbar';
 import SignIn from './components/SignIn';
+import Recipes from './components/Recipes';
 
 function App() {
   // const [users, setUsers] = useState([]);
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/signin' element={<SignIn />}></Route>
+        <Route path='/recipes' element={<Recipes />}></Route>
       </Routes>
     </div>
   );
