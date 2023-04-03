@@ -93,7 +93,7 @@ const Home = () => {
   }
 
   return (
-    <div className='max-w-[1240px] w-full h-full mx-auto flex justify-center items-center bg-green-600 pt-16'
+    <div className='max-w-[1240px] w-full h-auto md:h-full mx-auto flex justify-center items-center bg-green-600 pt-16'
     >
       <div className='w-full h-full'>
         <div className='h-full'>
@@ -145,7 +145,7 @@ const Home = () => {
                         itemImage.length > 0
                         ?
                           <div
-                            className='flex justify-center items-center border-2 border-green-500 bg-white rounded-xl p-2 pl-0 m-auto cursor-pointer hover:scale-105 ease-in duration-500 relative group'
+                            className='flex justify-center items-center border-2 border-green-500 bg-white rounded-xl m-auto cursor-pointer hover:scale-105 ease-in duration-500 relative group'
                           >
                             <div
                               className='flex justify-center items-center w-[25px] mr-3 border-r-2 hover:scale-110 ease-in duration-500 text-gray-400'
@@ -163,33 +163,43 @@ const Home = () => {
                                 className='h-12 w-12 mx-1 rounded-lg m-auto'
                                 src={itemImage}
                               />
-                              {itemLabel}
                             </div>
-                            <div className='flex flex-col items-center justify-center'>
-                              <label className='text-xs text-gray-400'>
-                                Qty
-                              </label>
+                            <div className='flex flex-col'>
+                              <div>
+                                <p className='tracking-widest uppercase font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'>
+                                  { itemLabel }
+                                </p>
+                              </div>
+                              <div className='flex p-1'>
 
-                              <input
-                                min='1'
-                                placeholder='1'
-                                type='number'
-                                className='h-8 w-14 border-2 p-2 mx-2'
-                                onChange={(e) => setQuantity(parseInt(e.target.value))}
-                              />
-                            </div>
-                            <div className='flex flex-col items-center justify-center'>
-                              <label className='text-xs text-gray-400'>
-                                Exp. Date
-                              </label>
+                                <div className='flex flex-col items-center justify-center'>
+                                  <label className='text-xs text-gray-400'>
+                                    Qty
+                                  </label>
 
-                              <input
-                                min={new Date().toISOString().split('T')[0]} 
-                                type='date'
-                                className='h-8 w-50 border-2 p-2 mx-2'
-                                onChange={(e) => setExpDate(e.target.value)}
-                              />
-                            </div>
+                                  <input
+                                    min='1'
+                                    placeholder='1'
+                                    type='number'
+                                    className='h-8 w-12 border-2 p-2 mx-2'
+                                    onChange={(e) => setQuantity(parseInt(e.target.value))}
+                                  />
+                                </div>
+                                <div className='flex flex-col items-center justify-center'>
+                                  <label className='text-xs text-gray-400'>
+                                    Exp. Date
+                                  </label>
+
+                                  <input
+                                    min={new Date().toISOString().split('T')[0]} 
+                                    type='date'
+                                    className='h-8 w-36 border-2 p-2 mx-2'
+                                    onChange={(e) => setExpDate(e.target.value)}
+                                  />
+                                </div>
+                              </div>
+
+                              </div>
                           </div>
                         :
                           foodItems
