@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Grocery from './Grocery'
 import axios from 'axios';
 import RecipeModal from './RecipeModal'; 
+import { useNavigate } from 'react-router-dom';
 
 const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     const apiID = process.env.REACT_APP_RECIPE_API_ID;
@@ -10,6 +11,7 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     const [recipes, setRecipes] = useState<JSX.Element[]>([]);
     const [isModalOn, setIsModalOn] = useState<boolean>(false);
     const [recipeObj, setRecipeObj] = useState<RecipeObj>();
+    const navigate = useNavigate();
 
     const handleLink = (url: string) => {
         window.open(url, '_blank', 'noopener,noreferrer');
@@ -212,7 +214,20 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     return (
     <div className='max-w-[1240px] w-full h-auto md:h-full mx-auto flex flex-col justify-start items-center pt-16'>
         <div className='flex w-full h-16 p-2'>
-            {ingredients}
+            {
+                ingredients
+                ?
+                    ingredients
+                :
+                <div className='min-w-[100px] h-12 m-2'>
+                    <div
+                        className='flex justify-center items-center w-full h-full rounded-xl bg-white border-green-500 border-2 p-2 hover:scale-75 ease-out duration-500 cursor-pointer'
+                        onClick={() => navigate('/')}
+                    >
+                        <label className='uppercase font-bont tracking-widest'>Back</label>
+                    </div>
+                </div>
+            }
         </div>
         <div className='flex flex-col md:grid grid-cols-8 w-full h-[550px]'>
             <div className='col-span-6 p-2'>
