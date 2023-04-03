@@ -14,7 +14,7 @@ function setUpServer () {
         res.sendFile(path.resolve(__dirname,'../client/build/index.html'));
     });
 
-    app.get('/recipes', (req,res) =>{
+    app.get('/api/recipes', (req,res) =>{
         res.sendFile(path.resolve(__dirname,'../client/build/index.html'));
     });
 
@@ -84,88 +84,23 @@ function setUpServer () {
         };
     });
 
-    app.get('/ingredients/:uid', async (req, res) => {
-        const { uid } = req.params;
-        try {
-            const ingredients = await db('ingredients')
-                .select('*')
-                .where({uid : uid})
-            res.status(201).send(ingredients);
-
-        } catch (error) {
-          console.log(error);  
-        };
-    });
-
-    app.get('/ingredients/:id', async (req, res) => {
-        try {
-            const { id } = req.params;
-            const item = await db('ingredients')
-                .select('*')
-                .where({ pantry_id : id });
-            res.status(201).send(item);
-
-        } catch (error) {
-            console.log(error);
-        };
-    });
-
-    app.post('/ingredients', async (req, res) => {
-        try {
-            await db('ingredients')
-                .insert(req.body);
-            res.status(201).send('Success!');
-
-        } catch (error) {
-            console.log(error);
-        };
-    });
-
-    app.put('/ingredients/:id', async (req, res) => {
-        try {
-            const { id } = req.params;
-            
-            await db('ingredients')
-                .where({ pantry_id : id })
-                .update(req.body, ['name', 'timestamp']);
-            res.status(201).send('Updated!');
-
-        } catch (error) {
-            console.log(error);
-        };
-    });
-
-    app.delete('/ingredients/:id', async (req, res) => {
-        try {
-            const { id } = req.params;
-            
-            await db('ingredients')
-                .where({ pantry_id: id })
-                .delete();
-            res.status(201).send('Item was deleted!');
-
-        } catch (error) {
-            console.log(error);
-        };
-    });
-
-    app.get('/grocery_list/:uid', async (req, res) => {
+    app.get('/api/recipes/:uid', async (req, res) => {
         const  { uid } = req.params;
         try {
-            const grocery_list = await db('grocery_list')
+            const recipes = await db('recipes')
                 .select('*')
                 .where({uid: uid})
-            res.status(201).send(grocery_list);
+            res.status(201).send(recipes);
 
         } catch (error) {
           console.log(error);  
         };
     });
 
-    app.get('/grocery_list/:id', async (req, res) => {
+    app.get('/api/recipes/:id', async (req, res) => {
         try {
             const { id } = req.params;
-            const list = await db('grocery_list')
+            const list = await db('recipes')
                 .select('*')
                 .where({ id : id });
             res.status(201).send(list);
@@ -175,9 +110,9 @@ function setUpServer () {
         };
     });
 
-    app.post('/grocery_list', async (req, res) => {
+    app.post('/api/recipes', async (req, res) => {
         try {
-            await db('grocery_list')
+            await db('recipes')
                 .insert(req.body);
             res.status(201).send('Success!');
 
@@ -186,11 +121,11 @@ function setUpServer () {
         };
     });
 
-    app.delete('/grocery_list/:id', async (req, res) => {
+    app.delete('/api/recipes/:id', async (req, res) => {
         try {
             const { id } = req.params;
             
-            await db('grocery_list')
+            await db('recipes')
                 .where({ id: id })
                 .delete();
             res.status(201).send('Item was deleted!');
