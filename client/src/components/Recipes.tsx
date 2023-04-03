@@ -69,16 +69,16 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                                 </div>
                                 <div className='flex w-full h-[50px] md:h-[80px] justify-between items-center'>
                                     <div>
-                                        <label className='text-gray-500 lowercase text-xs'>Cook Time</label>
-                                        <p>{ cook_time } mins</p>
+                                        <label className='text-gray-500 lowercase text-xs'>Time</label>
+                                        <p className='text-[13px] md:text-sm'>{ cook_time } mins</p>
                                     </div>
                                     <div>
                                         <label className='text-gray-500 lowercase text-xs'>Servings</label>
-                                        <p>{ servings }</p>
+                                        <p className='text-[13px] md:text-sm'>{ servings }</p>
                                     </div>
                                     <div>
                                         <label className='text-gray-500 lowercase text-xs'>Calories/serving</label>
-                                        <p>{ calories } kcal</p>
+                                        <p className='text-[13px] md:text-sm'>{ calories } kcal</p>
                                     </div>
                                 </div>
                             </div>
