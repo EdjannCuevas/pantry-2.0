@@ -21,7 +21,6 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
             
             const spacedIngredients = selected.join('%20and%20').toLowerCase();
             const fetchedRecipes = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${spacedIngredients}&app_id=${apiID}&app_key=${apiKey}`);
-            console.log(fetchedRecipes.data.hits)
             const recipeList = fetchedRecipes.data.hits.map((item: ResponseObj) => {
                 const recipe = item.recipe;
                 const name = recipe.label;
@@ -93,6 +92,7 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     },[]);
 
     const handleOpenModal = (recipe: RecipeObj) => {
+        console.log(recipe);
         setRecipeObj(recipe);
         setIsModalOn(true);
     }
