@@ -23,7 +23,7 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 return (
                     <div className='flex py-1 px-4'>
                         <div
-                            className='border-2 w-full border-green-500 bg-white flex h-[90px] rounded-xl hover:scale-105 ease-in duration-500 px-4 relative group'
+                            className='border-2 w-full border-green-500 bg-white flex h-[90px] rounded-xl hover:scale-105 ease-in duration-500 px-4 cursor-pointer relative group'
                             onClick={() => handleSelection(id, select)}
                         >
                             <div className='flex justify-start w-full'>
@@ -39,11 +39,13 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                                         <p className='tracking-widest uppercase font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'>
                                             { label }
                                         </p>
-                                        <p
-                                            onClick={() => handleDelete(id)}
-                                            className='hidden absolute bot-11 -translate-y-5 translate-x-96 z-10 text-sm group-hover:block w-10 tracking-widest uppercase font-bold bg-red-600 px-1 rounded-lg rounded-b-none'>
-                                            x
-                                        </p>
+                                        <div className='hidden absolute bot-11 -translate-y-5 translate-x-96 z-10 text-sm group-hover:block w-17 tracking-widest uppercase font-bold bg-green-500 px-1 rounded-lg rounded-b-none cursor-pointer'>
+                                            <p
+                                                onClick={() => handleDelete(id)}
+                                                className=''>
+                                                delete
+                                            </p>
+                                        </div>
                                     </div>
                                     <div className='flex w-full justify-between h-[50px] pt-2'>
                                         <div className='flex flex-col justify-center items-center h-full'>
