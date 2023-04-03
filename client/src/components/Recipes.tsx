@@ -9,7 +9,7 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     const [ingredients, setIngredients] = useState<string[]>([]);
     const [recipes, setRecipes] = useState<JSX.Element[]>([]);
     const [isModalOn, setIsModalOn] = useState<boolean>(false);
-    const [recipeObj, setRecipeObj] = useState<null|RecipeObj>(null);
+    const [recipeObj, setRecipeObj] = useState<RecipeObj>();
     
     useEffect(() => {
         const getRecipes = async () => {

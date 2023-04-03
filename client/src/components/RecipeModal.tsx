@@ -3,7 +3,7 @@ import { Transition } from '@headlessui/react'
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
 
 interface RecipeModalProps {
-    recipe: RecipeObj | null;
+    recipe: RecipeObj;
     handleCloseModal: () => void;
 }
 
@@ -92,59 +92,59 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal }) =
                 <div className='flex h-[180px]'>
                    <div className='h-[180px] w-[180px] overflow-hidden rounded-xl'>
                         <img
-                            alt={recipe?.label}
-                            src={recipe?.image}
+                            alt={recipe.label}
+                            src={recipe.image}
                         />
                    </div>
                    <div className='w-[190px] flex flex-col justify-start items-center p-2'>
                         <div>
-                            <label className='font-bold uppercase'>{ recipe?.label }</label>
+                            <label className='font-bold uppercase'>{ recipe.label }</label>
                         </div>
                         <div className='flex justify-between w-full my-1'>
-                            <p className='first-letter:uppercase'>{ recipe?.cuisineType.join(', ') }</p>
+                            <p className='first-letter:uppercase'>{ recipe.cuisineType.join(', ') }</p>
                         </div>
                         <div className='flex justify-between w-full my-3'>
                             <div className='flex flex-col'>
                                 <label className='text-[10px] tracking-widest uppercase text-gray-500'>time</label>
-                                <p className='text-xs md:text-[15px]'>{ recipe?.totalTime }m</p>
+                                <p className='text-xs md:text-[15px]'>{ recipe.totalTime }m</p>
                             </div>
                             <div className='flex flex-col'>
                                 <label className='text-[10px] tracking-widest uppercase text-gray-500'>calories</label>
-                                <p  className='text-xs md:text-[15px]'>{ recipe?.calories } kcal</p>
+                                <p  className='text-xs md:text-[15px]'>{ recipe.calories / recipe.yield } kcal</p>
                             </div>
                             <div className='flex flex-col'>
                                 <label className='text-[10px] tracking-widest uppercase text-gray-500'>yield</label>
-                                <p  className='text-xs md:text-[15px]'>{ recipe?.yield }</p>
+                                <p  className='text-xs md:text-[15px]'>{ recipe.yield }</p>
                             </div>
                         </div>
                    </div>
                 </div>
                 <div className='h-auto'>
-                    <div className='flex justify-between w-full my-3'>
+                    <div className='flex justify-between w-full my-3 p-2'>
                         <div className='flex flex-col justify-center items-center'>
                             <label className='text-[10px] tracking-widest uppercase text-gray-500'>fat</label>
-                            <p className='text-xs md:text-[15px] first-letter:uppercase'>{ Math.floor(recipe?.digest[0].total) }{ recipe?.digest[0].unit }</p>
+                            <p className='text-xs md:text-[15px] first-letter:uppercase'>{ Math.floor(recipe.digest[0].total) /  recipe.yield }{ recipe.digest[0].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
                             <label className='text-[10px] tracking-widest uppercase text-gray-500'>carbs</label>
-                            <p  className='text-xs md:text-[15px] first-letter:uppercase'>{ Math.floor(recipe?.digest[1].total) }{ recipe?.digest[1].unit }</p>
+                            <p  className='text-xs md:text-[15px] first-letter:uppercase'>{ Math.floor(recipe.digest[1].total) /  recipe.yield }{ recipe.digest[0].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
                             <label className='text-[10px] tracking-widest uppercase text-gray-500'>protein</label>
-                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe?.digest[2].total) }{ recipe?.digest[2].unit }</p>
+                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[2].total) / recipe.yield }{ recipe.digest[2].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
                             <label className='text-[10px] tracking-widest uppercase text-gray-500'>Cholesterol</label>
-                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe?.digest[3].total) }{ recipe?.digest[3].unit }</p>
+                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[3].total) / recipe.yield }{ recipe.digest[3].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
                             <label className='text-[10px] tracking-widest uppercase text-gray-500'>sodium</label>
-                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe?.digest[4].total) }{ recipe?.digest[4].unit }</p>
+                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[4].total) / recipe.yield }{ recipe.digest[4].unit }</p>
                         </div>
                     </div>
                     <div className='flex flex-col'>
                         <label className='text-[10px] tracking-widest uppercase text-gray-500'>ingredients</label>
-                        <p className='text-xs md:text-[12px] p-2'>{ recipe?.ingredientLines.join(', ') }</p>
+                        <p className='text-xs md:text-[12px] p-2'>{ recipe.ingredientLines.join(', ') }</p>
                     </div>
                 </div>
                 <div className='h-[86px] flex flex-col items-center justify-between'>
