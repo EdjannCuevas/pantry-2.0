@@ -99,7 +99,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal }) =
                             <label className='font-bold uppercase'>{ recipe.label }</label>
                         </div>
                         <div className='flex justify-between w-full my-1'>
-                            <p className='first-letter:uppercase'>{ recipe.cuisineType.join(', ') }</p>
+                            <p className='first-letter:uppercase'>{ recipe.cuisineType.join(', ') } Cuisine</p>
                         </div>
                         <div className='flex justify-between w-full my-3'>
                             <div className='flex flex-col'>
@@ -121,23 +121,23 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal }) =
                     <div className='flex justify-between w-full my-3 p-2'>
                         <div className='flex flex-col justify-center items-center'>
                             <label className='text-[10px] tracking-widest uppercase text-gray-500'>fat</label>
-                            <p className='text-xs md:text-[15px] first-letter:uppercase'>{ Math.floor(recipe.digest[0].total) /  recipe.yield }{ recipe.digest[0].unit }</p>
+                            <p className='text-xs md:text-[15px] first-letter:uppercase'>{ Math.floor(recipe.digest[0].total /  recipe.yield) }{ recipe.digest[0].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
                             <label className='text-[10px] tracking-widest uppercase text-gray-500'>carbs</label>
-                            <p  className='text-xs md:text-[15px] first-letter:uppercase'>{ Math.floor(recipe.digest[1].total) /  recipe.yield }{ recipe.digest[0].unit }</p>
+                            <p  className='text-xs md:text-[15px] first-letter:uppercase'>{ Math.floor(recipe.digest[1].total /  recipe.yield) }{ recipe.digest[0].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
                             <label className='text-[10px] tracking-widest uppercase text-gray-500'>protein</label>
-                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[2].total) / recipe.yield }{ recipe.digest[2].unit }</p>
+                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[2].total / recipe.yield) }{ recipe.digest[2].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
                             <label className='text-[10px] tracking-widest uppercase text-gray-500'>Cholesterol</label>
-                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[3].total) / recipe.yield }{ recipe.digest[3].unit }</p>
+                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[3].total / recipe.yield) }{ recipe.digest[3].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
                             <label className='text-[10px] tracking-widest uppercase text-gray-500'>sodium</label>
-                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[4].total) / recipe.yield }{ recipe.digest[4].unit }</p>
+                            <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[4].total / recipe.yield) }{ recipe.digest[4].unit }</p>
                         </div>
                     </div>
                     <div className='flex flex-col'>
@@ -151,13 +151,13 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal }) =
                                 className='h-[40px] w-44 rounded-xl flex items-center justify-center bg-green-500 hover:scale-105 ease-in duration-500 cursor-pointer'
                                 onClick={handleClose}
                             >
-                                add to grocery list
+                                save recipe
                         </div>
                         <div
                                 className='h-[40px] w-44 rounded-xl flex items-center justify-center bg-green-500 hover:scale-105 ease-in duration-500 cursor-pointer'
                                 onClick={handleClose}
                             >
-                                see recipe
+                                instructions
                         </div>
                         </div>    
                    <div
