@@ -14,3 +14,17 @@ interface triggerProps {
     setTrigger: (arg: boolean) => void,
     trigger: boolean,
 }
+
+interface RecipeObj {
+    label: string;
+    image: string;
+    ingredientLines: string[];
+    totalTime: string;
+    yield: number;
+    calories: number;
+    url: string;
+}
+
+interface ResponseObj {
+    recipe: RecipeObj;
+}

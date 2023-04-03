@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Pantry from './Pantry';
 import Ingredients from './Ingredients';
 
-const Home = () => {
+const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
   const apiID = process.env.REACT_APP_API_ID;
   const apiKey = process.env.REACT_APP_API_KEY;
   const [calories, setCalories] = useState(0);
@@ -14,7 +14,6 @@ const Home = () => {
   const [itemLabel, setItemLabel] = useState('');
   const [itemImage, setItemImage] = useState('');
   const [foodItems, setFoodItems] = useState<JSX.Element[]>([]);
-  const [trigger, setTrigger] = useState(false);
 
   useEffect(() => {
     handleDefaultSuggestions();
