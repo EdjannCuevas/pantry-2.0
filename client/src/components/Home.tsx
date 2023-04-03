@@ -3,15 +3,9 @@ import axios from 'axios';
 import Pantry from './Pantry';
 import Ingredients from './Ingredients';
 
-interface HomeProps {
-  setIngredients: (arg: string[]) => void,
-  trigger: boolean,
-  setTrigger: (arg: boolean) => void;
-}
-
-const Home: React.FC<HomeProps> = ({ trigger, setTrigger, setIngredients }) => {
-  const apiID = process.env.REACT_APP_API_ID;
-  const apiKey = process.env.REACT_APP_API_KEY;
+const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
+  const apiID = process.env.REACT_APP_FOOD_API_ID;
+  const apiKey = process.env.REACT_APP_FOOD_API_KEY;
   const [calories, setCalories] = useState(0);
   const [protein, setProtein] = useState(0);
   const [fat, setFat] = useState(0);
@@ -225,9 +219,9 @@ const Home: React.FC<HomeProps> = ({ trigger, setTrigger, setIngredients }) => {
                   </button>
                 </div>
               </div>
-              <Ingredients trigger={trigger} setTrigger={setTrigger} setIngredients={setIngredients}/>
+              <Ingredients trigger={trigger} setTrigger={setTrigger} />
             </div>
-            <Pantry trigger={trigger} setTrigger={setTrigger}/>
+            <Pantry trigger={trigger} setTrigger={setTrigger} />
           </div>
         </div>
       </div>

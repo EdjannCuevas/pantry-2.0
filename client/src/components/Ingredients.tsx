@@ -2,13 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-interface IngredientsProps {
-  trigger: boolean,
-  setTrigger: (arg: boolean) => void,
-  setIngredients: (arg: string[]) => void,
-}
-
-const Ingredients: React.FC<IngredientsProps> = ({ trigger, setTrigger, setIngredients }) => {
+const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
   const [selectedItems, setSelectedItems] = useState<JSX.Element[]>([]);
   const navigate = useNavigate();
 
@@ -78,11 +72,6 @@ const Ingredients: React.FC<IngredientsProps> = ({ trigger, setTrigger, setIngre
   }
 
   const handleRecipeSearch = async () => {
-    const fetchedSelected = await axios.get('/api/pantry/1goodsir/selected');
-    const selected = fetchedSelected.data.map((foodItem: PantryObj) => {
-      return foodItem.name;
-    });
-    setIngredients(selected);
     setTrigger(!trigger);
     setTimeout(() => {
       navigate('/recipes');
