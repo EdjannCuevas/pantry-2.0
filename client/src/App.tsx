@@ -12,7 +12,7 @@ function App() {
   // const [users, setUsers] = useState([]);
 
   return (
-    <div className="w-screen h-screen bg-green-200">
+    <div className="w-screen h-auto md:h-screen bg-green-200">
       <Navbar />
       <Routes>
         <Route path='/' element={<Home trigger={trigger} setTrigger={setTrigger} />}></Route>
