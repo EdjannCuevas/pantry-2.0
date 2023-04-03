@@ -15,14 +15,24 @@ interface triggerProps {
     trigger: boolean,
 }
 
-interface RecipeObj {
+interface digestObj {
     label: string;
-    image: string;
-    ingredientLines: string[];
-    totalTime: string;
-    yield: number;
-    calories: number;
-    url: string;
+    total: float;
+    unit: string;
+}
+
+interface RecipeObj {
+    label: string,
+    image: string,
+    ingredientLines: string[],
+    totalTime: string,
+    yield: number,
+    calories: number
+    url: string,
+    cautions: string[],
+    cuisinteType: string[],
+    dietLabels: string[],
+    digest: digestObj[],
 }
 
 interface ResponseObj {
