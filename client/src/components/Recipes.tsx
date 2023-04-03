@@ -10,6 +10,10 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     const [recipes, setRecipes] = useState<JSX.Element[]>([]);
     const [isModalOn, setIsModalOn] = useState<boolean>(false);
     const [recipeObj, setRecipeObj] = useState<RecipeObj>();
+
+    const handleLink = (url: string) => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+    }
     
     const recipeDefault = {
         "label": "Steamed Spareribs In Black Bean Sauce",
@@ -223,7 +227,7 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
             </div>
             <Grocery trigger={ trigger } setTrigger={ setTrigger } />
         </div>
-        { isModalOn && recipeObj ? <RecipeModal recipe={ recipeObj } handleCloseModal={ handleCloseModal } /> : null }
+        { isModalOn && recipeObj ? <RecipeModal recipe={ recipeObj } handleCloseModal={ handleCloseModal } handleLink={ handleLink }/> : null }
     </div>
   )
 }

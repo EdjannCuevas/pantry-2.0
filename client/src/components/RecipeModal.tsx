@@ -3,11 +3,18 @@ import { Transition } from '@headlessui/react'
 interface RecipeModalProps {
     recipe: RecipeObj;
     handleCloseModal: () => void;
+    handleLink: (arg: string) => void;
 }
 
-const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal }) => {
+const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, handleLink }) => {
 
     const handleClose = () => {
+        setTimeout(() => {
+            handleCloseModal();
+        }, 300);
+    }
+
+    const handleSave = (recipe: RecipeObj) => {
         setTimeout(() => {
             handleCloseModal();
         }, 300);
@@ -92,13 +99,13 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal }) =
                     <div className='flex justify-between w-full'>
                         <div
                                 className='h-[40px] w-44 rounded-xl flex items-center justify-center bg-green-500 hover:scale-105 ease-in duration-500 cursor-pointer'
-                                onClick={handleClose}
+                                onClick={() => handleSave(recipe)}
                             >
                                 save recipe
                         </div>
                         <div
                                 className='h-[40px] w-44 rounded-xl flex items-center justify-center bg-green-500 hover:scale-105 ease-in duration-500 cursor-pointer'
-                                onClick={handleClose}
+                                onClick={() => handleLink(recipe.url)}
                             >
                                 instructions
                         </div>
