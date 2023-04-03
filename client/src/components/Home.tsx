@@ -156,10 +156,10 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                             >
                               X
                             </div>
-                            <div className='flex items-center mr-3'>
+                            <div className='flex items-center mr-3 h-12 w-12'>
                               <img
                                 alt={itemLabel}
-                                className='h-12 w-12 mx-1 rounded-lg m-auto'
+                                className='mx-1 rounded-lg m-auto'
                                 src={itemImage}
                               />
                             </div>
