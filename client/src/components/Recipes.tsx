@@ -6,18 +6,32 @@ import RecipeModal from './RecipeModal';
 const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     const apiID = process.env.REACT_APP_RECIPE_API_ID;
     const apiKey = process.env.REACT_APP_RECIPE_API_KEY;
-    const [ingredients, setIngredients] = useState<string[]>([]);
+    const [ingredients, setIngredients] = useState<JSX.Element[]>([]);
     const [recipes, setRecipes] = useState<JSX.Element[]>([]);
     const [isModalOn, setIsModalOn] = useState<boolean>(false);
     const [recipeObj, setRecipeObj] = useState<RecipeObj>();
     
     useEffect(() => {
         const getRecipes = async () => {
+            // const fetchedSelected = [{"id":3,"uid":"1goodsir","name":"Rye Bread","exp_date":"","img_source":"https://www.edamam.com/food-img/2d1/2d1b8db0fe95a564cb25432a83ca8a66.jpg","qty":2,"cal":259,"fat":3.3,"protein":8.5,"isSelected":true},{"id":1,"uid":"1goodsir","name":"Pork","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/d55/d553f23d42b9c8fb314416ccd5cde3d2.jpg","qty":1,"cal":198,"fat":12.58,"protein":19.74,"isSelected":true},{"id":7,"uid":"1goodsir","name":"Avocado","exp_date":"2023-04-06","img_source":"https://www.edamam.com/food-img/984/984a707ea8e9c6bf5f6498970a9e6d9d.jpg","qty":10,"cal":160,"fat":14.66,"protein":2,"isSelected":true},{"id":2,"uid":"1goodsir","name":"Pork Sparerib","exp_date":"2023-04-06","img_source":"https://www.edamam.com/food-img/e54/e548d7ddfea41f3ffa55cb712ae4e4a8.jpg","qty":2,"cal":277,"fat":23.4,"protein":15.47,"isSelected":true},{"id":4,"uid":"1goodsir","name":"Chicken Leg","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/f53/f53de7dd1054370cdfd98e18ccf77dbe.jpg","qty":1,"cal":214,"fat":15.95,"protein":16.37,"isSelected":false},{"id":6,"uid":"1goodsir","name":"Ground Coffee","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/336/336e810373dd353a955a6896699b586e.jpg","qty":2,"cal":353,"fat":0.5,"protein":12.2,"isSelected":false},{"id":5,"uid":"1goodsir","name":"Orange Blossom Honey","exp_date":"2023-04-30","img_source":"https://www.edamam.com/food-img/198/198c7b25c23b4235b4cc33818c7b335f.jpg","qty":1,"cal":304,"fat":10.6,"protein":0.3,"isSelected":false},{"id":3,"uid":"1goodsir","name":"Rye Bread","exp_date":"","img_source":"https://www.edamam.com/food-img/2d1/2d1b8db0fe95a564cb25432a83ca8a66.jpg","qty":2,"cal":259,"fat":3.3,"protein":8.5,"isSelected":false},{"id":1,"uid":"1goodsir","name":"Pork","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/d55/d553f23d42b9c8fb314416ccd5cde3d2.jpg","qty":1,"cal":198,"fat":12.58,"protein":19.74,"isSelected":false},{"id":7,"uid":"1goodsir","name":"Avocado","exp_date":"2023-04-06","img_source":"https://www.edamam.com/food-img/984/984a707ea8e9c6bf5f6498970a9e6d9d.jpg","qty":10,"cal":160,"fat":14.66,"protein":2,"isSelected":false},{"id":2,"uid":"1goodsir","name":"Pork Sparerib","exp_date":"2023-04-06","img_source":"https://www.edamam.com/food-img/e54/e548d7ddfea41f3ffa55cb712ae4e4a8.jpg","qty":2,"cal":277,"fat":23.4,"protein":15.47,"isSelected":false},{"id":4,"uid":"1goodsir","name":"Chicken Leg","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/f53/f53de7dd1054370cdfd98e18ccf77dbe.jpg","qty":1,"cal":214,"fat":15.95,"protein":16.37,"isSelected":false},{"id":6,"uid":"1goodsir","name":"Ground Coffee","exp_date":"2023-04-08","img_source":"https://www.edamam.com/food-img/336/336e810373dd353a955a6896699b586e.jpg","qty":2,"cal":353,"fat":0.5,"protein":12.2,"isSelected":false},{"id":5,"uid":"1goodsir","name":"Orange Blossom Honey","exp_date":"2023-04-30","img_source":"https://www.edamam.com/food-img/198/198c7b25c23b4235b4cc33818c7b335f.jpg","qty":1,"cal":304,"fat":10.6,"protein":0.3,"isSelected":false}]
             const fetchedSelected = await axios.get('/api/pantry/1goodsir/selected');
+            const selectedObj = fetchedSelected.data.filter((foodItem: PantryObj) => foodItem.isSelected);
             const selected = fetchedSelected.data.map((foodItem: PantryObj) => {
                 return foodItem.name;
             });
-            setIngredients(selected);
+            const ingredientsElements = selectedObj.map((foodItem: PantryObj) => {
+                return (
+                    <div className='min-w-[100px] h-12 m-2'>
+                        <div
+                            className='flex justify-center items-center w-full h-full rounded-xl bg-white border-green-500 border-2 p-2 hover:scale-75 ease-out duration-500 cursor-pointer'
+                            onClick={() => handleSelection(foodItem.id, foodItem.isSelected)}
+                        >
+                            <label>{ foodItem.name }</label>
+                        </div>
+                    </div>
+                );
+            })
+            setIngredients(ingredientsElements);
             
             const spacedIngredients = selected.join('%20and%20').toLowerCase();
             const fetchedRecipes = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${spacedIngredients}&app_id=${apiID}&app_key=${apiKey}`);
@@ -89,7 +103,7 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
             setRecipes(recipeList);
         }
         getRecipes();
-    },[]);
+    },[trigger]);
 
     const handleOpenModal = (recipe: RecipeObj) => {
         console.log(recipe);
@@ -97,11 +111,24 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
         setIsModalOn(true);
     }
 
+    const handleSelection = async (id: number, selected: boolean) => {
+        try {
+            await axios.put((`/api/pantry/${id}`), {
+                isSelected: !selected
+            });
+            setTimeout(() => {
+              setTrigger(!trigger);
+            }, 500);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const handleCloseModal = () => setIsModalOn(false);
 
     return (
     <div className='max-w-[1240px] w-full h-auto md:h-full mx-auto flex flex-col justify-start items-center pt-16'>
-        <div className='w-full h-20 bg-yellow-400 p-2'>
+        <div className='flex w-full h-16 p-2'>
             {ingredients}
         </div>
         <div className='flex flex-col md:grid grid-cols-8 w-full h-[550px]'>
