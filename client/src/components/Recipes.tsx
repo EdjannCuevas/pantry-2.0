@@ -215,13 +215,13 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     <div className='max-w-[1240px] w-full h-auto md:h-full mx-auto flex flex-col justify-start items-center pt-16'>
         <div className='flex w-full h-16 p-2'>
             {
-                ingredients
+                ingredients.length > 0
                 ?
                     ingredients
                 :
                 <div className='min-w-[100px] h-12 m-2'>
                     <div
-                        className='flex justify-center items-center w-full h-full rounded-xl bg-white border-green-500 border-2 p-2 hover:scale-75 ease-out duration-500 cursor-pointer'
+                        className='flex justify-center items-center w-full h-full rounded-xl bg-green-500 border-green-500 border-2 p-2 hover:scale-75 ease-out duration-500 cursor-pointer'
                         onClick={() => navigate('/')}
                     >
                         <label className='uppercase font-bont tracking-widest'>Back</label>
