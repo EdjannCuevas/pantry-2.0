@@ -30,7 +30,7 @@ interface RecipeObj {
     calories: number
     url: string,
     cautions: string[],
-    cuisinteType: string[],
+    cuisineType: string[],
     dietLabels: string[],
     digest: digestObj[],
 }
