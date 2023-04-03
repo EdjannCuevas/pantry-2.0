@@ -9,7 +9,7 @@ function App() {
   // const [users, setUsers] = useState([]);
 
   return (
-    <div className="w-screen h-screen bg-[#dbe8dc]">
+    <div className="w-screen h-screen bg-green-200">
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />}></Route>
