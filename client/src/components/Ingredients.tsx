@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
   const [selectedItems, setSelectedItems] = useState<JSX.Element[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getSelectedItems = async () => {
@@ -14,9 +16,6 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
         const label = foodItem.name;
         const img = foodItem.img_source;
         const expDate = foodItem.exp_date;
-        const fat = foodItem.fat;
-        const calories = foodItem.cal;
-        const protein = foodItem.protein;
         const quantity = foodItem.qty;
         const select = foodItem.isSelected;
 
@@ -82,15 +81,14 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 <label className='uppercase tracking-widest'> Search for recipes</label>
               </div>
             </div>
-            <div className='w-full h-[160px] md:h-[265px] overflow-y-scroll px-4'>
+            <div className='w-full h-[158px] md:h-[262px] overflow-y-scroll px-4'>
               <div className='flex flex-col'>
                 {selectedItems}
               </div>
             </div>
             <button
-              className={`${selectedItems.length > 0 ? 'bg-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-t-2'} w-full p-2 align-bottom rounded-b-3xl`}
-              onClick={() => {
-              }}
+              className={`${selectedItems.length > 0 ? 'bg-green-500 border-2 border-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-2 border-green-400'} w-full p-2 align-bottom rounded-b-3xl`}
+              onClick={() => { navigate('recipes') }}
             >
               Search
             </button>

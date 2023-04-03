@@ -150,6 +150,7 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                               onClick={() => {
                                 setItemLabel('');
                                 setItemImage('');
+                                setExpDate('');
                                 getPantry();
                               }}
                             >
@@ -209,7 +210,7 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 <div className='w-full'>
                   <button
                     disabled={expDate.length === 0}
-                    className={`${itemImage && expDate.length > 0 ? 'bg-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-t-2'} w-full p-2 align-bottom rounded-b-3xl`}
+                    className={`${itemImage && expDate.length > 0 ? 'bg-green-500 border-2 border-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-2 border-green-400'} w-full p-2 align-bottom rounded-b-3xl`}
                     onClick={() => {
                       handleAddButton();
                     }}
