@@ -88,7 +88,7 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 <label className='uppercase tracking-widest'> Search for recipes</label>
               </div>
             </div>
-            <div className='w-full h-[158px] md:h-[262px] overflow-y-scroll px-4'>
+            <div className='w-full h-[158px] md:h-[262px] overflow-y-auto px-4'>
               <div className='flex flex-col'>
                 {selectedItems}
               </div>

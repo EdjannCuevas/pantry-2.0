@@ -234,7 +234,7 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                     <h2 className='uppercase tracking-widest font-bold'>recipes</h2>
                 </div>
                 <div className='p-2 bg-white bg-opacity-75 h-[510px]'>
-                    <div className='h-full flex flex-col md:grid grid-cols-2 overflow-scroll overflow-x-hidden p-2'>
+                    <div className='h-full flex flex-col md:grid grid-cols-2 overflow-y-auto p-2'>
                         { recipes }
                     </div>
                 </div>
