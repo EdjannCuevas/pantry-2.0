@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
+interface IngredientsProps {
+  trigger: boolean,
+  setTrigger: (arg: boolean) => void,
+  setIngredients: (arg: string[]) => void,
+}
+
+const Ingredients: React.FC<IngredientsProps> = ({ trigger, setTrigger, setIngredients }) => {
   const [selectedItems, setSelectedItems] = useState<JSX.Element[]>([]);
   const navigate = useNavigate();
 
@@ -69,7 +75,19 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     } catch (error) {
         console.log(error);
     }
-}
+  }
+
+  const handleRecipeSearch = async () => {
+    const fetchedSelected = await axios.get('/api/pantry/1goodsir/selected');
+    const selected = fetchedSelected.data.map((foodItem: PantryObj) => {
+      return foodItem.name;
+    });
+    setIngredients(selected);
+    setTrigger(!trigger);
+    setTimeout(() => {
+      navigate('/recipes');
+    },1000);
+  }
 
 
   return (
@@ -88,7 +106,7 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
             </div>
             <button
               className={`${selectedItems.length > 0 ? 'bg-green-500 border-2 border-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-2 border-green-400'} w-full p-2 align-bottom rounded-b-3xl`}
-              onClick={() => { navigate('recipes') }}
+              onClick={() => { handleRecipeSearch() }}
             >
               Search
             </button>

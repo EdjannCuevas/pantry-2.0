@@ -8,15 +8,16 @@ import Recipes from './components/Recipes';
 
 function App() {
   const [trigger, setTrigger] = useState(false);
+  const [ingredients, setIngredients] = useState<string[]>([]);
   // const [users, setUsers] = useState([]);
 
   return (
     <div className="w-screen h-screen bg-green-200">
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home trigger={trigger} setTrigger={setTrigger} />}></Route>
+        <Route path='/' element={<Home trigger={trigger} setTrigger={setTrigger} setIngredients={setIngredients} />}></Route>
         <Route path='/signin' element={<SignIn />}></Route>
-        <Route path='/recipes' element={<Recipes trigger={trigger} setTrigger={setTrigger}/>}></Route>
+        <Route path='/recipes' element={<Recipes trigger={trigger} setTrigger={setTrigger} ingredients={ingredients}/>}></Route>
       </Routes>
     </div>
   );

@@ -3,7 +3,13 @@ import axios from 'axios';
 import Pantry from './Pantry';
 import Ingredients from './Ingredients';
 
-const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
+interface HomeProps {
+  setIngredients: (arg: string[]) => void,
+  trigger: boolean,
+  setTrigger: (arg: boolean) => void;
+}
+
+const Home: React.FC<HomeProps> = ({ trigger, setTrigger, setIngredients }) => {
   const apiID = process.env.REACT_APP_API_ID;
   const apiKey = process.env.REACT_APP_API_KEY;
   const [calories, setCalories] = useState(0);
@@ -219,7 +225,7 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                   </button>
                 </div>
               </div>
-              <Ingredients trigger={trigger} setTrigger={setTrigger}/>
+              <Ingredients trigger={trigger} setTrigger={setTrigger} setIngredients={setIngredients}/>
             </div>
             <Pantry trigger={trigger} setTrigger={setTrigger}/>
           </div>
