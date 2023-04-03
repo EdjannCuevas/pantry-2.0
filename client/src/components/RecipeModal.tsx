@@ -49,7 +49,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal }) =
                             </div>
                             <div className='flex flex-col'>
                                 <label className='text-[10px] tracking-widest uppercase text-gray-500'>calories</label>
-                                <p  className='text-xs md:text-[15px]'>{ recipe.calories / recipe.yield } kcal</p>
+                                <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.calories / recipe.yield) } kcal</p>
                             </div>
                             <div className='flex flex-col'>
                                 <label className='text-[10px] tracking-widest uppercase text-gray-500'>yield</label>
