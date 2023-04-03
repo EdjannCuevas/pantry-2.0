@@ -30,7 +30,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
         };
         setTimeout(() => {
             handleCloseModal();
-        }, 300);
+        }, 700);
     }
 
   return (
