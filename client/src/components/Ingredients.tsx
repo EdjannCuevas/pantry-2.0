@@ -34,8 +34,8 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 />
               </div>
               <div className='w-full flex flex-col'>
-                <div className='flex h-[20px] items-start justify-start'>
-                  <p className='tracking-widest uppercase font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'>
+                <div className='h-[20px] items-start justify-start'>
+                  <p className='tracking-widest uppercase text-xs md:text-sm font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'>
                       { label }
                   </p>
                 </div>
