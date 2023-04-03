@@ -35,6 +35,13 @@ interface RecipeObj {
     digest: digestObj[],
 }
 
+interface RecipeTableObj {
+    label: string,
+    image: string,
+    ingredientLines: string[],
+    url: string,
+}
+
 interface ResponseObj {
     recipe: RecipeObj;
 }
