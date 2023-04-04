@@ -172,7 +172,7 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                               <div className='flex p-1'>
 
                                 <div className='flex flex-col items-center justify-center'>
-                                  <label className='text-xs text-gray-400'>
+                                  <label className='text-[8px] md:text-[10px] uppercase text-gray-400'>
                                     Qty
                                   </label>
 
@@ -185,8 +185,8 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                                   />
                                 </div>
                                 <div className='flex flex-col items-center justify-center'>
-                                  <label className='text-xs text-gray-400'>
-                                    Exp. Date
+                                  <label className='text-[8px] md:text-[10px] text-gray-400 uppercase'>
+                                    Expiry Date
                                   </label>
 
                                   <input
