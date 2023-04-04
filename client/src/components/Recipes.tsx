@@ -140,7 +140,7 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 return (
                     <div className='h-[120px] w-full py-1 px-2'>
                         <div
-                            className='flex bg-white rounded-xl z-50 border-2 border-green-500 hover:scale-105 ease-in duration-500 cursor-pointer'
+                            className='flex bg-white rounded-xl z-50 border-2 border-amber-600 hover:scale-105 ease-in-out duration-300 cursor-pointer'
                             onClick={() => {
                                 handleOpenModal({
                                     label: name,

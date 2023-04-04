@@ -12,7 +12,7 @@ const Grocery: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
             const groceries = fetchedGroceries.data.map((recipeItem: RecipeTableObj) => {
                 return (
                     <div className='w-full h-[120px] p-2'>
-                        <div className='flex justify-start items-center w-full h-full border-2 border-green-500 bg-white rounded-lg hover:scale-105 ease-in duration-300 p-2 cursor-pointer'>
+                        <div className='flex justify-start items-center w-full h-full border-2 border-amber-600 bg-white rounded-lg hover:scale-105 ease-in duration-300 p-2 cursor-pointer'>
                             <div className='rounded-xl h-[90px] w-[90px] overflow-hidden'>
                                 <img
                                     key={recipeItem.label}
