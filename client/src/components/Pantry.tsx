@@ -23,7 +23,7 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 return (
                     <div className='flex py-1 px-4'>
                         <div
-                            className='border-2 w-full border-green-500 bg-white flex h-[90px] rounded-xl hover:scale-105 ease-in duration-500 px-4 cursor-pointer relative group'
+                            className='border-2 w-full border-green-500 bg-white flex h-[90px] rounded-xl hover:scale-105 ease-in duration-300 px-4 cursor-pointer relative group'
                             onClick={() => handleSelection(id, select)}
                         >
                             <div className='flex justify-start w-full'>
@@ -39,34 +39,34 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                                         <p className='w-full tracking-widest uppercase text-xs md:text-sm font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'>
                                             { label }
                                         </p>
-                                        <div className='hidden absolute -translate-y-5 translate-x-40 md:translate-x-96 z-10 text-sm group-hover:block w-17 tracking-widest uppercase font-bold bg-green-500 px-1 rounded-lg rounded-b-none cursor-pointer'>
+                                        <div className='hidden absolute -translate-y-5 translate-x-40 md:translate-x-96 z-10 text-sm group-hover:block w-17 tracking-widest uppercase font-bold bg-green-400 px-1 rounded-lg rounded-b-none cursor-pointer'>
                                             <p
                                                 onClick={() => handleDelete(id)}
-                                                className=''>
+                                                className='text-[10px]'>
                                                 delete
                                             </p>
                                         </div>
                                     </div>
                                     <div className='flex w-full justify-between h-[50px] pt-2'>
-                                        <div className='flex flex-col justify-center items-center h-full'>
-                                            <label className='text-[10px] tracking-widest uppercase text-gray-500'>qty</label>
-                                            <p className='text-xs md:text-[15px]'>{ quantity }</p>
+                                        <div className='flex flex-col justify-center items-center h-full rounded-full'>
+                                            <label className='text-[8px] md:text-[10px] tracking-widest uppercase text-green-600'>qty</label>
+                                            <p className='text-[10px] md:text-[15px]'>{ quantity }</p>
                                         </div>
-                                        <div className='flex flex-col justify-center items-center h-full'>
-                                            <label className='text-[10px] tracking-widest uppercase text-gray-500'>calories</label>
-                                            <p className='text-xs md:text-[15px]'>{ calories }kcal</p>
+                                        <div className='flex flex-col justify-center items-center h-full rounded-full'>
+                                            <label className='text-[8px] md:text-[10px] tracking-widest uppercase text-orange-600'>calories</label>
+                                            <p className='text-[10px] md:text-[15px]'>{ calories }kcal</p>
                                         </div>
-                                        <div className='flex flex-col justify-center items-center h-full'>
-                                            <label className='text-[10px] tracking-widest uppercase text-gray-500'>protein</label>
-                                            <p className='text-xs md:text-[15px]'>{ protein }g</p>
+                                        <div className='flex flex-col justify-center items-center h-full rounded-full'>
+                                            <label className='text-[8px] md:text-[10px] tracking-widest uppercase text-amber-600'>protein</label>
+                                            <p className='text-[10px] md:text-[15px]'>{ protein }g</p>
                                         </div>
-                                        <div className='flex flex-col justify-center items-center h-full'>
-                                            <label className='text-[10px] tracking-widest uppercase text-gray-500'>fat</label>
-                                            <p className='text-xs md:text-[15px]'>{ fat }g</p>
+                                        <div className='flex flex-col justify-center items-center h-full rounded-full'>
+                                            <label className='text-[8px] md:text-[10px] tracking-widest uppercase text-yellow-500'>fat</label>
+                                            <p className='text-[10px] md:text-[15px]'>{ fat }g</p>
                                         </div>
-                                        <div className='flex flex-col justify-center items-center h-full'>
-                                            <label className='text-[10px] tracking-widest uppercase text-gray-500'>exp. date</label>
-                                            <p className='text-xs md:text-[15px]'>{ expDate }</p>
+                                        <div className='flex flex-col justify-center items-center h-full rounded-full'>
+                                            <label className='text-[8px] md:text-[10px] tracking-widest uppercase text-gray-500'>expiry</label>
+                                            <p className='text-[10px] md:text-[15px]'>{ expDate }</p>
                                         </div>
                                     </div>
                                 </div>
