@@ -20,32 +20,28 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
         const select = foodItem.isSelected;
 
         return (
-          <div className='border-2 h-[80px] rounded-xl my-1 bg-white border-green-500 cursor-pointer'>
             <div
-              className='flex'
+              className='flex h-[90px]'
               onClick={() => handleSelection(id, select)}
             >
-              <div className='rounded-lg overflow-hidden m-2 ml-4 mr-3'>
+          <div className='flex border-2 rounded-xl my-1 bg-white border-green-500 cursor-pointer hover:scale-90 ease-in-out duration-300'>
+              <div className='w-auto h-auto'>
                 <img
-                  className='w-[74px]'
+                  className='w-[70px] rounded-lg m-1'
                   alt={ label }
                   src={ img }
                 />
               </div>
-              <div className='w-full flex flex-col'>
+              <div className='w-[80px] md:w-[135px] flex flex-col'>
                 <div className='h-[20px] items-start justify-start'>
-                  <p className='tracking-widest uppercase text-xs md:text-sm font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'>
+                  <p className='tracking-widest uppercase text-[8px] md:text-[10px] font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-tr-lg rounded-r-none rounded-t-none'>
                       { label }
                   </p>
                 </div>
                 <div className='flex justify-around w-full h-full'>
                   <div className='flex flex-col justify-center items-center h-full'>
-                      <label className='text-[10px] tracking-widest uppercase text-gray-500'>qty</label>
-                      <p className='text-[15px]'>{ quantity }</p>
-                  </div>
-                  <div className='flex flex-col  justify-center items-center h-full'>
-                    <label className='text-[10px] uppercase tracking-widest text-gray-500'>Exp. Date</label>
-                    <p className='text-[15px]'>{ expDate }</p>
+                      <label className='text-[8px] md:text-[10px] uppercase tracking-widest text-green-600'>qty</label>
+                      <p className='text-[8px] md:text-[10px]'>{ quantity }</p>
                   </div>
                 </div>
               </div>
@@ -81,26 +77,24 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
 
   return (
     <div className='pt-6'>
-        <div className='flex h-[251px] md:h-[355px] flex-col rounded-3xl shadow-lg bg-white bg-opacity-80 border-2 border-white'>
-          <div className='w-full'>
-            <div className='flex items-center justify-center w-full h-[45px] rounded-t-3xl bg-green-400'>
-              <div className='flex items-center justify-center'>
-                <label className='uppercase tracking-widest'> Search for recipes</label>
-              </div>
+      <div className='flex justify-center items-center h-[25px] border-2 border-b-0 border-white bg-green-500 rounded-sm rounded-b-none z-50 cursor-pointer'>
+        <h2 className='uppercase tracking-widest font-bold'>Search</h2>
+      </div>
+      <div className='flex h-[251px] md:h-[355px] flex-col rounded-3xl rounded-t-none shadow-lg bg-white bg-opacity-80 border-2 border-white'>
+        <div className='w-full'>
+          <div className='w-full h-[158px] md:h-[262px] overflow-y-auto px-4'>
+            <div className='grid grid-cols-2'>
+              {selectedItems}
             </div>
-            <div className='w-full h-[158px] md:h-[262px] overflow-y-auto px-4'>
-              <div className='flex flex-col'>
-                {selectedItems}
-              </div>
-            </div>
-            <button
-              className={`${selectedItems.length > 0 ? 'bg-green-500 border-2 border-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-2 border-green-400'} w-full p-2 align-bottom rounded-b-3xl`}
-              onClick={() => { handleRecipeSearch() }}
-            >
-              Search
-            </button>
           </div>
+          <button
+            className={`${selectedItems.length > 0 ? 'bg-green-500 border-2 border-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-2 border-green-400'} w-full p-2 align-bottom rounded-b-3xl`}
+            onClick={() => { handleRecipeSearch() }}
+          >
+            Search
+          </button>
         </div>
+      </div>
     </div>
   )
 }
