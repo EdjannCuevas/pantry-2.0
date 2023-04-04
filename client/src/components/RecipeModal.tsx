@@ -1,4 +1,5 @@
 import { Transition } from '@headlessui/react'
+import { AiOutlineClose } from 'react-icons/ai'
 import axios from 'axios';
 
 interface RecipeModalProps {
@@ -52,8 +53,9 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
           <div className="bg-white rounded-lg shadow-lg p-4 z-10 w-[390px]">
             <div className="flex flex-col w-full min-h-full">
                 <div className='flex h-[180px]'>
-                   <div className='h-[180px] w-[180px] overflow-hidden rounded-xl'>
+                   <div className='h-[180px] w-[180px] rounded-xl'>
                         <img
+                            className='h-[180px] w-[180px] rounded-xl'
                             alt={recipe.label}
                             src={recipe.image}
                         />
@@ -67,15 +69,15 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                         </div>
                         <div className='flex justify-between w-full my-3'>
                             <div className='flex flex-col'>
-                                <label className='text-[10px] tracking-widest uppercase text-gray-500'>time</label>
+                                <label className='text-[10px] tracking-widest uppercase text-green-500'>time</label>
                                 <p className='text-xs md:text-[15px]'>{ recipe.totalTime }m</p>
                             </div>
                             <div className='flex flex-col'>
-                                <label className='text-[10px] tracking-widest uppercase text-gray-500'>calories</label>
+                                <label className='text-[10px] tracking-widest uppercase text-blue-500'>calories</label>
                                 <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.calories / recipe.yield) } kcal</p>
                             </div>
                             <div className='flex flex-col'>
-                                <label className='text-[10px] tracking-widest uppercase text-gray-500'>yield</label>
+                                <label className='text-[10px] tracking-widest uppercase text-amber-500'>yield</label>
                                 <p  className='text-xs md:text-[15px]'>{ recipe.yield }</p>
                             </div>
                         </div>
@@ -84,15 +86,15 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                 <div className='h-auto'>
                     <div className='flex justify-between w-full my-3 p-2'>
                         <div className='flex flex-col justify-center items-center'>
-                            <label className='text-[10px] tracking-widest uppercase text-gray-500'>fat</label>
+                            <label className='text-[10px] tracking-widest uppercase text-yellow-500'>fat</label>
                             <p className='text-xs md:text-[15px] first-letter:uppercase'>{ Math.floor(recipe.digest[0].total /  recipe.yield) }{ recipe.digest[0].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
-                            <label className='text-[10px] tracking-widest uppercase text-gray-500'>carbs</label>
+                            <label className='text-[10px] tracking-widest uppercase text-purple-500'>carbs</label>
                             <p  className='text-xs md:text-[15px] first-letter:uppercase'>{ Math.floor(recipe.digest[1].total /  recipe.yield) }{ recipe.digest[0].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
-                            <label className='text-[10px] tracking-widest uppercase text-gray-500'>protein</label>
+                            <label className='text-[10px] tracking-widest uppercase text-orange-500'>protein</label>
                             <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[2].total / recipe.yield) }{ recipe.digest[2].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
@@ -100,7 +102,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                             <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[3].total / recipe.yield) }{ recipe.digest[3].unit }</p>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
-                            <label className='text-[10px] tracking-widest uppercase text-gray-500'>sodium</label>
+                            <label className='text-[10px] tracking-widest uppercase text-black'>sodium</label>
                             <p  className='text-xs md:text-[15px]'>{ Math.floor(recipe.digest[4].total / recipe.yield) }{ recipe.digest[4].unit }</p>
                         </div>
                     </div>
@@ -114,23 +116,29 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                 <div className='h-[86px] flex flex-col items-center justify-between'>
                     <div className='flex justify-between w-full'>
                         <div
-                                className='h-[40px] w-44 rounded-xl flex items-center justify-center bg-green-500 hover:scale-105 ease-in duration-500 cursor-pointer'
+                                className='h-[40px] w-44 rounded-xl text-white flex items-center justify-center bg-green-500 hover:scale-105 ease-in duration-500 cursor-pointer'
                                 onClick={() => handleSave(recipe)}
                             >
-                                save recipe
+                                <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
+                                    save
+                                </p>
                         </div>
                         <div
-                                className='h-[40px] w-44 rounded-xl flex items-center justify-center bg-green-500 hover:scale-105 ease-in duration-500 cursor-pointer'
+                                className='h-[40px] w-44 rounded-xl text-white flex items-center justify-center bg-green-500 hover:scale-105 ease-in duration-500 cursor-pointer'
                                 onClick={() => handleLink(recipe.url)}
                             >
-                                instructions
+                                <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
+                                    recipe
+                                </p>
                         </div>
                         </div>    
                    <div
-                        className='h-[40px] w-full rounded-xl flex items-center justify-center bg-green-500 hover:scale-105 ease-in duration-500 cursor-pointer'
+                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-green-500 hover:scale-105 ease-in duration-500 cursor-pointer'
                         onClick={handleClose}
                     >
-                        close
+                        <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
+                            <AiOutlineClose />
+                        </p>
                    </div>
                 </div>
             </div>
