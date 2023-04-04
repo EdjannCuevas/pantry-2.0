@@ -97,10 +97,13 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
         <div className='h-full'>
           <div className='flex flex-col md:grid grid-cols-7 w-full h-full p-2'>
             <div className='p-2 col-span-3'>
-              <div className='flex h-[250px] md:h-[220px] flex-col rounded-3xl shadow-lg bg-white bg-opacity-80 pt-2 border-2 border-white'>
-                <div className='flex flex-col justify-center items-start px-6'>
+            <div className='flex justify-center items-center h-[25px] border-2 border-b-0 border-white bg-green-500 rounded-sm rounded-b-none z-50 cursor-pointer'>
+              <h2 className='uppercase tracking-widest font-bold'>Add</h2>
+            </div>
+              <div className='flex h-[250px] md:h-[220px] flex-col rounded-3xl rounded-t-none shadow-lg bg-white bg-opacity-80 pt-2 border-2 border-white'>
+                <div className='flex flex-col justify-center items-start px-6 py-1'>
                   <p className=' text-gray-500'>
-                    Add items to your pantry
+                    add item to your pantry
                   </p>
                   <input
                     type='search'
