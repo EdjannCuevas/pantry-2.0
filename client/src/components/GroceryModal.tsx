@@ -39,7 +39,9 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
     >
       <div className="fixed z-10 inset-0 overflow-y-auto">
         <div className="flex items-center justify-center min-h-screen">
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75"></div>
+          <div
+            onClick={handleClose}
+            className="fixed inset-0 bg-gray-500 bg-opacity-75"></div>
           <div className="bg-white rounded-lg shadow-lg p-4 z-10 w-[380px]">
             <div className="flex flex-col w-full min-h-full">
                 <div className='h-[400px] flex flex-col justify-between'>

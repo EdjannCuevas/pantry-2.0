@@ -49,7 +49,10 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
     >
       <div className="fixed z-10 inset-0 overflow-y-auto">
         <div className="flex items-center justify-center min-h-screen">
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75"></div>
+          <div
+            onClick={handleClose}
+            className="fixed inset-0 bg-gray-500 bg-opacity-75"
+          ></div>
           <div className="bg-white rounded-lg shadow-lg p-4 z-10 w-[370px]">
             <div className="flex flex-col w-full min-h-full">
                 <div className='flex h-[180px]'>
@@ -113,10 +116,10 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                         </div>
                     </div>
                 </div>
-                <div className='h-[86px] flex flex-col items-center justify-between'>
+                <div className='h-[86px] flex flex-col items-center justify-between p-2'>
                     <div className='flex justify-between w-full'>
                         <div
-                                className='h-[40px] w-44 rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer'
+                                className='h-[40px] w-44 rounded-xl m-2 text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer'
                                 onClick={() => handleSave(recipe)}
                             >
                                 <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
@@ -124,7 +127,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                                 </p>
                         </div>
                         <div
-                                className='h-[40px] w-44 rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer'
+                                className='h-[40px] w-44 rounded-xl m-2 text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer'
                                 onClick={() => handleLink(recipe.url)}
                             >
                                 <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
@@ -133,7 +136,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                         </div>
                         </div>    
                    <div
-                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer'
+                        className='h-[40px] w-full rounded-xl px-1 text-white flex items-center justify-center bg-gray-500 hover:scale-105 ease-in duration-500 cursor-pointer'
                         onClick={handleClose}
                     >
                         <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
