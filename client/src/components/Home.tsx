@@ -19,7 +19,7 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
     handleDefaultSuggestions();
   },[])
 
-  const defaultSuggestions = ['banana', 'egg', 'butter', 'bread', 'tomato', 'oil', 'milk', 'apple', 'flour', 'sugar'];
+  const defaultSuggestions = ['banana', 'egg', 'butter', 'bread', 'tomato', 'oil', 'milk', 'apple', 'flour', 'sugar', 'paprika'];
 
   const handleDefaultSuggestions = () => {
     const itemButtons = defaultSuggestions.map((food: string) => {
@@ -27,7 +27,7 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
       return (
         <div
           key={food}
-          className='flex justify-center items-center border-2 border-green-500 bg-white rounded-xl p-1 m-1 cursor-pointer hover:scale-105 ease-in duration-500'
+          className='flex justify-center items-center border-2 border-green-500 bg-white rounded-lg shadow-xl p-1 m-1 cursor-pointer hover:scale-105 ease-in duration-300'
           onClick={ async () => {
             handleSelect(food);
           }}
@@ -119,7 +119,7 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                             return (
                               <div
                                 key={food}
-                                className='flex justify-center items-center border-2 border-green-500 bg-white rounded-xl p-1 m-1 cursor-pointer hover:scale-105 ease-in duration-500'
+                                className='flex justify-center items-center border-2 border-green-500 bg-white rounded-lg shadow-xl p-1 m-1 cursor-pointer hover:scale-105 ease-in duration-300'
                                 onClick={ async () => {
                                   handleSelect(food);
                                 }}
@@ -138,7 +138,7 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                     }}
                   />
                   </div>
-                <div className='flex w-full h-[132px] md:h-[102px] flex-wrap overflow-y-scroll px-4'>
+                <div className='flex w-full h-[132px] md:h-[102px] flex-wrap overflow-y-auto px-4'>
                   {
                     foodItems.length > 0
                     ?
@@ -146,10 +146,10 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                         itemImage.length > 0
                         ?
                           <div
-                            className='flex justify-center items-center border-2 border-green-500 bg-white rounded-xl m-auto cursor-pointer hover:scale-105 ease-in duration-500 relative group'
+                            className='flex justify-center items-center border-2 border-green-500 bg-white rounded-xl m-auto cursor-pointer hover:scale-105 ease-in duration-300 relative group'
                           >
                             <div
-                              className='flex justify-center items-center w-[25px] mr-3 border-r-2 hover:scale-110 ease-in duration-500 text-gray-400'
+                              className='flex justify-center items-center w-[25px] mr-3 border-r-2 hover:scale-110 ease-in duration-300 text-gray-400'
                               onClick={() => {
                                 setItemLabel('');
                                 setItemImage('');
@@ -213,7 +213,7 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 <div className='w-full'>
                   <button
                     disabled={expDate.length === 0}
-                    className={`${itemImage && expDate.length > 0 ? 'bg-green-500 border-2 border-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-2 border-green-400'} w-full p-2 align-bottom rounded-b-3xl`}
+                    className={`${itemImage && expDate.length > 0 ? 'cursor-pointer' : 'cursor-not-allowed'} bg-green-500 border-2 border-green-500 shadow-lg w-full p-2 align-bottom rounded-b-3xl`}
                     onClick={() => {
                       handleAddButton();
                     }}

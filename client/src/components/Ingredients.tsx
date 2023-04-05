@@ -21,10 +21,10 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
 
         return (
             <div
-              className='flex h-[90px]'
+              className='flex h-[97px] p-1'
               onClick={() => handleSelection(id, select)}
             >
-          <div className='flex border-2 rounded-xl my-1 bg-white border-green-500 cursor-pointer hover:scale-90 ease-in-out duration-300'>
+          <div className='flex border-2 rounded-xl my-1 bg-white border-green-500 cursor-pointer shadow-xl hover:scale-90 ease-in-out duration-300'>
               <div className='w-auto h-auto'>
                 <img
                   className='w-[70px] rounded-lg m-1'
@@ -82,13 +82,13 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
       </div>
       <div className='flex h-[206px] md:h-[310px] flex-col rounded-3xl rounded-t-none shadow-lg bg-white bg-opacity-80 border-2 border-white'>
         <div className='w-full'>
-          <div className='w-full h-[158px] md:h-[262px] overflow-y-auto px-4'>
-            <div className='grid grid-cols-2'>
+          <div className='w-full h-[158px] md:h-[262px] overflow-y-auto px-4 flex items-center justify-center'>
+            <div className='grid grid-cols-2 mt-7'>
               {selectedItems}
             </div>
           </div>
           <button
-            className={`${selectedItems.length > 0 ? 'bg-green-500 border-2 border-green-500 shadow-lg' : 'bg-green-400 shadow-lg border-2 border-green-400'} w-full p-2 align-bottom rounded-b-3xl`}
+            className={`${selectedItems.length > 0 ? 'cursor-pointer' : 'cursor-not-allowed'} bg-green-500 border-2 border-green-500 shadow-lg w-full p-2 align-bottom rounded-b-3xl`}
             onClick={() => { handleRecipeSearch() }}
           >
             Search

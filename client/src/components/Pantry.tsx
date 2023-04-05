@@ -23,14 +23,14 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 return (
                     <div className='flex py-1 px-4'>
                         <div
-                            className='border-2 w-full border-green-500 bg-white flex h-[90px] rounded-xl hover:scale-105 ease-in duration-300 px-4 cursor-pointer relative group'
+                            className='border-2 w-full border-green-500 bg-white flex h-[90px] shadow-lg hover:scale-105 ease-in duration-300 px-4 cursor-pointer relative group'
                             onClick={() => handleSelection(id, select)}
                         >
                             <div className='flex justify-start w-full'>
                                 <div className='flex items-center justify-center pr-4'>
                                     <img
                                         alt={label}
-                                        className='h-[70px] w-[80px] rounded-lg'
+                                        className='h-[70px] w-[80px] rounded-lg shadow-2xl hover:scale-105 ease-in-out duration-300'
                                         src={ img }
                                     />
                                 </div>
@@ -39,7 +39,7 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                                         <p className='w-full tracking-widest uppercase text-xs md:text-sm font-bold bg-green-500 px-1 bg-opacity-75 rounded-lg rounded-t-none'>
                                             { label }
                                         </p>
-                                        <div className='hidden absolute -translate-y-5 translate-x-40 md:translate-x-96 z-10 text-sm group-hover:block w-17 tracking-widest uppercase font-bold bg-green-400 px-1 rounded-lg rounded-b-none cursor-pointer'>
+                                        <div className='hidden absolute -translate-y-5 translate-x-40 md:translate-x-96 z-10 text-sm group-hover:block w-17 tracking-widest uppercase font-bold bg-green-400 bg-opacity-75 px-1 rounded-lg rounded-b-none cursor-pointer'>
                                             <p
                                                 onClick={() => handleDelete(id)}
                                                 className='text-[10px]'>
