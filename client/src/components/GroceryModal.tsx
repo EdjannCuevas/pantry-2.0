@@ -55,13 +55,13 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                             <label className='font-bold uppercase'>{ recipe.label }</label>
                         </div>
                     </div>
-                    <div className='h-[200px] overflow-y-scroll'>
+                    <div className='h-[200px] overflow-y-auto'>
                         <div className=''>
                             {recipeLines}
                         </div>
                     </div>
                     <div
-                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer'
+                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer m-2'
                         onClick={() => handleLink(recipe.url)}
                     >
                         <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
@@ -69,7 +69,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                         </p>
                    </div>
                     <div
-                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer'
+                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer m-2'
                         onClick={handleClose}
                     >
                         <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
