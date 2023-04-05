@@ -24,6 +24,7 @@ const Grocery: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
             // const groceries = fetchedGroceries.map((recipeItem: RecipeTableObj) => {
             const fetchedGroceries = await axios.get(`/api/recipes/1goodsir`);
             const groceries = fetchedGroceries.data.map((recipeItem: RecipeTableObj) => {
+                const image = recipeItem.image;
                 return (
                     <div className='w-full h-[120px] p-2'>
                         <div
@@ -33,7 +34,7 @@ const Grocery: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                             <div className='rounded-xl h-[90px] w-[90px] overflow-hidden'>
                                 <img
                                     key={recipeItem.label}
-                                    src={recipeItem.image}    
+                                    src={image}    
                                 />
                             </div>
                             <div className='w-[150px] flex justify-center items-center p-2'>

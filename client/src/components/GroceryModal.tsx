@@ -9,6 +9,7 @@ interface RecipeModalProps {
 }
 
 const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, handleLink }) => {
+    const image = recipe.image;
     const [recipeLines, setRecipeLines] = useState<JSX.Element[]>([]);
 
     const handleClose = () => {
@@ -49,7 +50,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                         <img
                             className='h-[120px]'
                             alt={recipe.label}
-                            src={recipe.image}
+                            src={image}
                         />
                         <div className='w-[220px] h-full flex justify-center items-center p-6'>
                             <label className='font-bold uppercase'>{ recipe.label }</label>
@@ -61,7 +62,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                         </div>
                     </div>
                     <div
-                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer m-2'
+                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer'
                         onClick={() => handleLink(recipe.url)}
                     >
                         <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
@@ -69,7 +70,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                         </p>
                    </div>
                     <div
-                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer m-2'
+                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer'
                         onClick={handleClose}
                     >
                         <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
