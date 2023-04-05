@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa'
 
 const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
   const [selectedItems, setSelectedItems] = useState<JSX.Element[]>([]);
@@ -82,16 +83,16 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
       </div>
       <div className='flex h-[206px] md:h-[310px] flex-col rounded-3xl rounded-t-none shadow-lg bg-white bg-opacity-80 border-2 border-white'>
         <div className='w-full'>
-          <div className='w-full h-[158px] md:h-[262px] overflow-y-auto px-4 flex items-center justify-center'>
-            <div className='grid grid-cols-2 mt-7'>
+          <div className='w-full h-[158px] md:h-[262px] overflow-y-auto px-4 flex items-start justify-center'>
+            <div className='grid grid-cols-2'>
               {selectedItems}
             </div>
           </div>
           <button
-            className={`${selectedItems.length > 0 ? 'cursor-pointer' : 'cursor-not-allowed'} bg-green-500 border-2 border-green-500 shadow-lg w-full p-2 align-bottom rounded-b-3xl`}
+            className={`${selectedItems.length > 0 ? 'cursor-pointer shadow-lg' : 'cursor-not-allowed'} bg-green-500 border-2 border-green-500 w-full p-2 flex justify-center items-center text-white text-[24px] align-bottom rounded-b-3xl`}
             onClick={() => { handleRecipeSearch() }}
           >
-            Search
+            <FaSearch />
           </button>
         </div>
       </div>

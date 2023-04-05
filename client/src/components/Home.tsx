@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Pantry from './Pantry';
 import Ingredients from './Ingredients';
+import { IoIosAddCircle } from 'react-icons/io'
 
 const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
   const apiID = process.env.REACT_APP_FOOD_API_ID;
@@ -213,12 +214,12 @@ const Home: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 <div className='w-full'>
                   <button
                     disabled={expDate.length === 0}
-                    className={`${itemImage && expDate.length > 0 ? 'cursor-pointer' : 'cursor-not-allowed'} bg-green-500 border-2 border-green-500 shadow-lg w-full p-2 align-bottom rounded-b-3xl`}
+                    className={`${itemImage && expDate.length > 0 ? 'cursor-pointer shadow-lg' : 'cursor-not-allowed'} bg-green-500 border-2 border-green-500 w-full p-2 flex justify-center items-center text-white text-[20px] align-bottom rounded-b-3xl`}
                     onClick={() => {
                       handleAddButton();
                     }}
                     >
-                    Add
+                    <IoIosAddCircle />
                   </button>
                 </div>
               </div>
