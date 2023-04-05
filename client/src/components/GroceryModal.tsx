@@ -57,26 +57,28 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                         </div>
                     </div>
                     <div className='h-[200px] overflow-y-auto'>
-                        <div className=''>
+                        <div className='p-2'>
                             {recipeLines}
                         </div>
                     </div>
-                    <div
-                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer'
-                        onClick={() => handleLink(recipe.url)}
-                    >
-                        <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
-                            Recipe
-                        </p>
-                   </div>
-                    <div
-                        className='h-[40px] w-full rounded-xl text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 cursor-pointer'
-                        onClick={handleClose}
-                    >
-                        <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
-                            <AiOutlineClose />
-                        </p>
-                   </div>
+                    <div className='flex p-2 justify-between items-center w-full'>
+                        <div
+                            className='h-[40px] w-[150px] rounded-lg text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 p-2 cursor-pointer'
+                            onClick={() => handleLink(recipe.url)}
+                        >
+                            <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
+                                Recipe
+                            </p>
+                        </div>
+                        <div
+                            className='h-[40px] w-[150px] rounded-lg text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 p-2 cursor-pointer'
+                            onClick={handleClose}
+                        >
+                            <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
+                                <AiOutlineClose />
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
           </div>

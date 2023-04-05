@@ -28,7 +28,7 @@ const Grocery: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 return (
                     <div className='w-full h-[120px] p-2'>
                         <div
-                            className='flex justify-start items-center w-full h-full border-2 border-white bg-amber-600 rounded-lg hover:scale-105 ease-in duration-300 p-2 cursor-pointer'
+                            className='flex justify-start items-center w-full h-full border-2 border-white bg-amber-400 rounded-lg hover:scale-105 ease-in duration-300 p-2 cursor-pointer'
                             onClick={() => handleOpenModal(recipeItem)}
                         >
                             <div className='rounded-xl h-[90px] w-[90px] overflow-hidden'>

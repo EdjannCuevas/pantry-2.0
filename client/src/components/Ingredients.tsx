@@ -22,7 +22,7 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
 
         return (
             <div
-              className='flex h-[97px] p-1'
+              className='flex h-[97px] p-1 w-full justify-center'
               onClick={() => handleSelection(id, select)}
             >
           <div className='flex border-2 rounded-xl my-1 bg-white border-green-500 cursor-pointer shadow-xl hover:scale-90 ease-in-out duration-300'>
@@ -83,8 +83,8 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
       </div>
       <div className='flex h-[206px] md:h-[310px] flex-col rounded-3xl rounded-t-none shadow-lg bg-white bg-opacity-80 border-2 border-white'>
         <div className='w-full'>
-          <div className='w-full h-[158px] md:h-[262px] overflow-y-auto px-4 flex items-start justify-center'>
-            <div className='grid grid-cols-2'>
+          <div className='w-full h-[158px] md:h-[262px] overflow-y-auto flex items-start justify-center'>
+            <div className='grid grid-cols-2 w-full'>
               {selectedItems}
             </div>
           </div>

@@ -23,14 +23,14 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 return (
                     <div className='flex py-1 px-4'>
                         <div
-                            className='border-2 w-full border-green-500 bg-white flex h-[90px] shadow-lg hover:scale-105 ease-in duration-300 px-4 cursor-pointer relative group'
+                            className='border-2 w-full border-green-500 bg-white flex h-[90px] shadow-lg hover:scale-105 ease-in duration-300 px-2 md:px-4 cursor-pointer relative group'
                             onClick={() => handleSelection(id, select)}
                         >
                             <div className='flex justify-start w-full'>
-                                <div className='flex items-center justify-center pr-4'>
+                                <div className='flex items-center justify-center pr-2 md:pr-4'>
                                     <img
                                         alt={label}
-                                        className='h-[70px] w-[80px] rounded-lg shadow-2xl hover:scale-105 ease-in-out duration-300'
+                                        className='h-[70px] w-[90px] md:w-[80px] rounded-lg shadow-2xl hover:scale-105 ease-in-out duration-300'
                                         src={ img }
                                     />
                                 </div>
@@ -50,23 +50,23 @@ const Pantry: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                                     <div className='flex w-full justify-between h-[50px] pt-2'>
                                         <div className='flex flex-col justify-center items-center h-full rounded-full'>
                                             <label className='text-[8px] md:text-[10px] tracking-widest uppercase text-green-600'>qty</label>
-                                            <p className='text-[10px] md:text-[15px]'>{ quantity }</p>
+                                            <p className='text-[9px] md:text-[15px]'>{ quantity }</p>
                                         </div>
                                         <div className='flex flex-col justify-center items-center h-full rounded-full'>
                                             <label className='text-[8px] md:text-[10px] tracking-widest uppercase text-orange-600'>calories</label>
-                                            <p className='text-[10px] md:text-[15px]'>{ calories }kcal</p>
+                                            <p className='text-[9px] md:text-[15px]'>{ calories }kcal</p>
                                         </div>
                                         <div className='flex flex-col justify-center items-center h-full rounded-full'>
                                             <label className='text-[8px] md:text-[10px] tracking-widest uppercase text-amber-600'>protein</label>
-                                            <p className='text-[10px] md:text-[15px]'>{ protein }g</p>
+                                            <p className='text-[9px] md:text-[15px]'>{ protein }g</p>
                                         </div>
                                         <div className='flex flex-col justify-center items-center h-full rounded-full'>
                                             <label className='text-[8px] md:text-[10px] tracking-widest uppercase text-yellow-500'>fat</label>
-                                            <p className='text-[10px] md:text-[15px]'>{ fat }g</p>
+                                            <p className='text-[9px] md:text-[15px]'>{ fat }g</p>
                                         </div>
                                         <div className='flex flex-col justify-center items-center h-full rounded-full'>
                                             <label className='text-[8px] md:text-[10px] tracking-widest uppercase text-gray-500'>expiry</label>
-                                            <p className='text-[10px] md:text-[15px]'>{ expDate }</p>
+                                            <p className='text-[9px] md:text-[15px]'>{ expDate }</p>
                                         </div>
                                     </div>
                                 </div>
