@@ -229,7 +229,7 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 </div>
             }
         </div>
-        <div className='flex flex-col md:grid grid-cols-8 w-full h-[550px]'>
+        <div className='flex flex-col md:grid grid-cols-8 w-full h-auto md:h-[550px]'>
             <div className='col-span-6 p-2'>
                 <div className='flex justify-center items-center h-[25px] border-2 border-b-0 border-white bg-green-500 rounded-sm rounded-b-none z-50 cursor-pointer'>
                     <h2 className='uppercase tracking-widest font-bold'>recipes</h2>
