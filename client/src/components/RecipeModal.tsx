@@ -137,7 +137,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                         </div> 
                     <div className='w-full h-[60px]'>
                         <div
-                                className='h-[40px] w-full p-2 text-white flex items-center justify-center bg-gray-500 hover:scale-105 ease-in duration-500 cursor-pointer'
+                                className='h-[40px] w-full p-2 text-white flex rounded-t-lg items-center justify-center bg-gray-500 hover:scale-105 ease-in duration-500 cursor-pointer'
                                 onClick={handleClose}
                             >
                                 <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
