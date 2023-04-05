@@ -108,7 +108,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                     </div>
                     <div className='flex flex-col'>
                         <label className='text-[10px] tracking-widest uppercase text-gray-500'>ingredients:</label>
-                        <div className='h-[120px] m-2 overflow-scroll overflow-x-hidden'>
+                        <div className='h-[120px] m-2 overflow-y-auto'>
                             <p className='text-xs md:text-[12px]'>{ recipe.ingredientLines.join(', ') }</p>
                         </div>
                     </div>
