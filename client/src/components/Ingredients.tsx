@@ -81,9 +81,9 @@ const Ingredients: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
       <div className='flex justify-center items-center h-[25px] border-2 border-b-0 border-white bg-green-500 rounded-sm rounded-b-none z-50 cursor-pointer'>
         <h2 className='uppercase tracking-widest font-bold'>Search</h2>
       </div>
-      <div className='flex h-[206px] md:h-[250px] flex-col rounded-3xl rounded-t-none shadow-lg bg-white bg-opacity-80 border-2 border-white'>
+      <div className='flex min-h-[156px] sm:max-h-[236px] md:max-h-[250px] flex-col rounded-3xl rounded-t-none shadow-lg bg-white bg-opacity-80 border-2 border-white'>
         <div className='w-full'>
-          <div className='w-full h-[158px] md:h-[202px] overflow-y-auto flex items-start justify-center'>
+          <div className='w-full min-h-[108px] max-h-[190px] h-auto md:max-h-[198px] overflow-y-auto flex items-start justify-center'>
             <div className='grid grid-cols-2 w-full'>
               {selectedItems}
             </div>
