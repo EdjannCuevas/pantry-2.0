@@ -10,7 +10,7 @@ const Navbar = () => {
     >
         <div className='bg-green-400 flex justify-around items-center w-full h-full px-2 2xl:px-16'>
           <div
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/home')}
             className='flex h-full items-center cursor-pointer'
           >
             <div>
