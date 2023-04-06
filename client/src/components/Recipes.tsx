@@ -158,7 +158,7 @@ const Recipes: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                                 });
                             }}
                         >
-                            <div className='rounded-xl overflow-clip h-[90px] w-[90px] m-2'>
+                            <div className='rounded-lg shadow-lg hover:scale-105 ease-in-out duration-300 overflow-clip h-[90px] w-[90px] m-2'>
                                 <img
                                     alt={name}
                                     src={image}
