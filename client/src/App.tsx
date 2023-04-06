@@ -8,8 +8,6 @@ import Recipes from './components/Recipes';
 
 function App() {
   const [trigger, setTrigger] = useState(false);
-  const [ingredients, setIngredients] = useState<string[]>([]);
-  // const [users, setUsers] = useState([]);
 
   return (
     <div className="w-screen h-auto md:h-screen bg-green-200">
