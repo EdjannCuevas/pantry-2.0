@@ -36,6 +36,7 @@ interface RecipeObj {
 }
 
 interface RecipeTableObj {
+    id: number,
     label: string,
     image: string,
     ingredientLines: string[],

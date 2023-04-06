@@ -1,4 +1,5 @@
 import { Transition } from '@headlessui/react'
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 
@@ -6,9 +7,11 @@ interface RecipeModalProps {
     recipe: RecipeTableObj;
     handleCloseModal: () => void;
     handleLink: (arg: string) => void;
+    trigger: boolean;
+    setTrigger: (arg: boolean) => void;
 }
 
-const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, handleLink }) => {
+const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, handleLink, trigger, setTrigger }) => {
     const image = recipe.image;
     const [recipeLines, setRecipeLines] = useState<JSX.Element[]>([]);
 
@@ -16,6 +19,15 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
         setTimeout(() => {
             handleCloseModal();
         }, 300);
+    };
+
+    const handleDelete = async (id: number) => {
+        try {
+            await axios.delete(`/api/recipes/${id}`);
+            setTrigger(!trigger);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     useEffect(() => {
@@ -71,13 +83,21 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                             </p>
                         </div>
                         <div
-                            className='h-[40px] w-[150px] rounded-lg text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 p-2 cursor-pointer'
-                            onClick={handleClose}
-                        >
-                            <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
-                                <AiOutlineClose />
-                            </p>
-                        </div>
+                        className='h-[40px] w-[150px] rounded-lg text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 p-2 cursor-pointer'
+                        onClick={() => handleDelete(recipe.id)}
+                    >
+                        <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
+                            delete
+                        </p>
+                    </div>
+                    </div>
+                    <div
+                        className='h-[40px] w-[150px] rounded-lg text-white flex items-center justify-center bg-amber-600 hover:scale-105 ease-in duration-500 p-2 cursor-pointer'
+                        onClick={handleClose}
+                    >
+                        <p className='flex justify-center items-center w-20 h-[30px] uppercase tracking-widest'>
+                            <AiOutlineClose />
+                        </p>
                     </div>
                 </div>
             </div>

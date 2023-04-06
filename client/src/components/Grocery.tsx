@@ -59,7 +59,7 @@ const Grocery: React.FC<triggerProps> = ({ trigger, setTrigger }) => {
                 { groceries }
             </div>
         </div>
-        { isModalOn && recipeObj ? <GroceryModal recipe={ recipeObj } handleCloseModal={ handleCloseModal } handleLink={ handleLink }/> : null }
+        { isModalOn && recipeObj ? <GroceryModal recipe={ recipeObj } handleCloseModal={ handleCloseModal } handleLink={ handleLink } trigger={ trigger }  setTrigger={ setTrigger }/> : null }
     </div>
     )
 }
