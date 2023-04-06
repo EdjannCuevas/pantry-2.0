@@ -25,6 +25,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
         try {
             await axios.delete(`/api/recipes/${id}`);
             setTrigger(!trigger);
+            handleCloseModal();
         } catch (error) {
             console.log(error);
         }
@@ -55,9 +56,9 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
           <div
             onClick={handleClose}
             className="fixed inset-0 bg-gray-500 bg-opacity-75"></div>
-          <div className="bg-white rounded-lg shadow-lg p-4 z-10 w-[380px]">
+          <div className="bg-white rounded-lg shadow-lg p-4 pb-0 z-10 w-[380px]">
             <div className="flex flex-col w-full min-h-full">
-                <div className='h-[400px] flex flex-col justify-between'>
+                <div className='h-[500px] flex flex-col justify-between'>
                     <div className='h-[130px] flex justify-start items-center'>
                         <img
                             className='h-[120px]'
@@ -68,8 +69,8 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                             <label className='font-bold uppercase'>{ recipe.label }</label>
                         </div>
                     </div>
-                    <div className='h-[200px] overflow-y-auto'>
-                        <div className='p-2'>
+                    <div className='h-[300px] overflow-y-auto m-2 p-4'>
+                        <div className='p-4'>
                             {recipeLines}
                         </div>
                     </div>
@@ -91,7 +92,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                             </p>
                         </div>
                     </div>
-                    <div className='w-full h-[60px]'>
+                    <div className='w-full h-[40px]'>
                         <div
                                 className='h-[40px] w-full p-2 text-white flex rounded-t-lg items-center justify-center bg-gray-500 hover:scale-105 ease-in duration-500 cursor-pointer'
                                 onClick={handleClose}
