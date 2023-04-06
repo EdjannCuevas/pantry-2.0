@@ -58,7 +58,7 @@ const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, handleCloseModal, han
                 <div className='flex h-[180px]'>
                    <div className='h-[180px] w-[180px] rounded-xl'>
                         <img
-                            className='h-[180px] w-[180px] rounded-xl'
+                            className='h-[180px] w-[180px] rounded-lg shadow-xl hover:scale-105 ease-in-out duration-300'
                             alt={recipe.label}
                             src={recipe.image}
                         />
